@@ -23,7 +23,7 @@ const agregarUsuario = () => {
         document.getElementById("Pass_Usuario").value = '';
     };
 
-    consulta.send(datos);
+    consulta.send(nuevoUsuario);
 }
 
 function getRandomInt(max) {
