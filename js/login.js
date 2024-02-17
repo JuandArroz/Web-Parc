@@ -24,8 +24,8 @@ const veriflog = () => {
                             if(iter.correo == correo && iter.pass == password){
                                 console.log(iter)
                                 console.log('Comprobación correcta');
-                                alert("Bienvenido, " + usuarioEncontrado.nombres);                    
-                                const userses = JSON.stringify(usuarioEncontrado);
+                                alert("Bienvenido, " + iter.nombres);                    
+                                const userses = JSON.stringify(iter);
                                 localStorage.setItem('sesionusuario', userses);   
                                 window.location = "../index.html";
                             }
