@@ -70,3 +70,16 @@ const comprobar_sesionD = () => {
         alert("ACCESO DENEGADO.\nSOLO DOCENTES Y ADMINISTRADORES")
     }
 }
+
+const comprobar_sesionE = () => {
+    if(sesionusuario){
+        if(sesionusuario.tipouser == 0 || sesionusuario.tipouser == 2){
+        }else{
+            window.location = "../index.html";
+            alert("ACCESO DENEGADO.\n")
+        }
+    }else{
+        window.location = "../index.html";
+        alert("ACCESO DENEGADO.\nSOLO ESTUDIANTES")
+    }
+}
