@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Usuario</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+</head>
+<body onload="comprobar_sesionA()">
+    <header>
+        <h1>TesiUB Administración</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">TesiUB</a></li>                
+            </ul>
+        </nav>
+    </header>
+    <div class="content">
+        <div class="formulario_agregar_usuario">
+            <form>
+                <label class="Label_Usuario" for="TXT_Correo">Correo Electrónico:</label><br>
+                <input type="text" class="Field_Usuario" id="TXT_Correo" required><br><br>
+                <label class="Label_Usuario" for="TXT_Nombres">Nombres:</label><br>
+                <input type="text" class="Field_Usuario" id="TXT_Nombres" required><br><br>
+                <label class="Label_Usuario" for="TXT_Apellidos">Apellidos:</label><br>
+                <input type="text" class="Field_Usuario" id="TXT_Apellidos" required><br><br>
+                <label class="Label_Usuario" for="Pass_Usuario">Contraseña:</label><br>
+                <input type="password" class="Field_Usuario" id="Pass_Usuario" required><br><br>
+                <label class="Label_Usuario" for="Select_TipoUsuario">Tipo de Usuario:</label><br>
+                <select id="Select_TipoUsuario">
+                    <option value="0">Administrador</option>
+                    <option value="1">Docente</option>
+                    <option value="2">Estudiante</option>
+                </select><br><br>
+                <input type="button" value="Agregar Usuario" id="Button_AgregarUsuario" onclick='agregarUsuario()'>
+            </form>
+        </div>
+    </div>
+    <div id="usuarioAgregado"></div>
+    <script src="../js/agregarusuario.js"></script>
+    <script src="../js/sesion.js"></script>
+    <footer>
+        <div><a href="contactanos.html">Contáctanos</a></div>
+    </footer>
+</body>
+</html>

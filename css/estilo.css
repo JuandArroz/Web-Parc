@@ -1,0 +1,389 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #1F3A5C;
+    color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav {
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    text-align: center; 
+    color: #FFBF0C; 
+}
+
+nav li {
+    display: inline-block; 
+    margin: 0 10px;
+    color: #FFBF0C; 
+} 
+
+nav li a {
+    color: #FFBF0C; 
+}
+
+footer {
+    background-color: #E9EAED;
+    color: #000000; 
+    padding: 20px 0;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+   
+}
+
+ul{
+    display: inline-block;
+}
+
+#opc4, #delog{
+    color: #FFBF0C;
+    padding-left:0.7%;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.block-button {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin-right: 250px; 
+}
+
+.block-button:last-child {
+    margin-right: 0; 
+}
+.container {
+    text-align: center;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.block-button {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.block-button:hover {
+    transform: scale(1.1);
+}
+
+.block-button img {
+    display: block;
+    width: 100px; 
+    height: auto;
+    margin: 0 auto 10px;
+}
+
+.block-button p {
+    margin: 0;
+    font-size: 17px; 
+}
+
+.button-description {
+    font-size: 17px; 
+}
+
+.container {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+   
+}
+
+.formulario_login{
+    position: absolute;
+    top: 41.85%;
+    left: 35%;
+    width: 30%;
+    height: 174px;
+    background-color: #1F3A5C;
+    color: #FFBF0C;
+    border-radius: 5%;
+    padding-top: 1.9%;
+}
+
+#Button_Login{
+    width: 76%;
+    height: 22px;
+    border: 0;
+    background-color: #FFBF0C;
+    color: #1F3A5C;
+    position: relative;
+    left: 12.05%;
+}
+
+.Field_Login{
+    border: 0;
+    height: 22px;
+    width: 75%;
+    color: black;
+    position: relative;
+    left: 12.05%;
+}
+
+.Label_Login{
+    position: relative;
+    left: 12.05%;
+}
+
+
+.body-tabladedatos {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header-tabladedatos {
+    background-color: #1F3A5C;
+    color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.nav-tabladedatos {
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    text-align: center; 
+    color: #FFBF0C; 
+}
+
+.nav-tabladedatos li {
+    display: inline-block; 
+    margin: 0 10px;
+    color: #FFBF0C; 
+} 
+
+.nav-tabladedatos li a {
+    color: #FFBF0C; 
+}
+
+.footer-tabladedatos {
+    background-color: #E9EAED;
+    color: #000000; 
+    padding: 20px 0;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.container-tabladedatos {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.table-tabladedatos {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 4 auto;
+}
+
+.th-tabladedatos,
+.td-tabladedatos {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.th-tabladedatos {
+    background-color: #1F3A5C;
+    color: #ffffff;
+}
+
+.tbody-tabladedatos tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.tbody-tabladedatos tr:hover {
+    background-color: #ddd;
+}
+
+/* Estilo Contact Us */
+
+.formulario_contacto {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#contactForm {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#contactForm label {
+    display: block;
+    margin-bottom: 5px;
+    color: #1F3A5C;
+}
+
+#contactForm input[type="text"],
+#contactForm input[type="email"],
+#contactForm textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#contactForm textarea {
+    height: 100px;
+}
+
+#contactForm input[type="submit"] {
+    background-color: #1F3A5C;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#contactForm input[type="submit"]:hover {
+    background-color: #0E1E31;
+}
+
+/*A partir de aquí es toda la parte de agregar usuario */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #1F3A5C;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #1F3A5C;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+input[type="submit"]:hover {
+    background-color: #0E1E31;
+}
+
+.formulario_agregar_usuario {
+    margin-top: 50px;
+    width: 80%; /* Ancho del formulario */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+
+footer {
+    background-color: #E9EAED;
+    color: #000000; 
+    padding: 20px 0;
+    text-align: center;
+}
+
+.content {
+    padding-bottom: 100px; /* Espacio para el footer */
+}
+
+.formulario_agregar_usuario {
+    margin-top: 50px;
+    width: 80%; /* Ancho del formulario */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.Field_Usuario,
+#Select_TipoUsuario {
+    width: calc(100% - 20px); /* Ancho del campo menos el espacio del borde */
+    margin-bottom: 10px;
+}
+
+#Button_AgregarUsuario {
+    width: 200px; /* Ancho del botón */
+    height: 40px; /* Altura del botón */
+    background-color: #1F3A5C;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px; /* Espacio arriba del botón */
+    margin-bottom: 20px; /* Espacio abajo del botón */
+    display: block;
+    margin-left: auto; /* Centrado horizontal */
+    margin-right: auto; /* Centrado horizontal */
+    transition: background-color 0.3s ease; /* Transición para el cambio de color de fondo */
+}
+
+#Button_AgregarUsuario.animated {
+    animation: pulse 1s infinite alternate; /* Animación pulsante */
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(1); /* Tamaño normal */
+    }
+    to {
+        transform: scale(1.1); /* Tamaño aumentado */
+    }
+}
+
+#Button_AgregarUsuario:hover {
+    background-color: #0E1E31; /* Cambio de color de fondo al pasar el ratón */
+}
+
+#subtesis{
+    position: absolute;
+    left: 35%;
+    top: 35%;
+}

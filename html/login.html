@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de sesión</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+</head>
+<body>
+    <header>
+        <h1>TesiUB</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">TesiUB</a></li>                
+            </ul>
+        </nav>
+    </header>
+    <div class="formulario_login">
+        <form>
+            <label class="Label_Login" for="TXT_Correo">Correo Electronico: </label><br>
+            <input type="text" class="Field_Login" id="TXT_Correo" required><br><br>
+            <label class="Label_Login" for="Pass_Login">Contraseña: </label><br>
+            <input type="password" class="Field_Login" id="Pass_Login" required><br><br>
+            <input type="button" value="Iniciar sesión" id="Button_Login" onclick='veriflog()'>
+        </form>
+    </div>
+    <script src="../js/login.js"></script>
+    <footer>
+        <div><a href="contactanos.html">Contactanos</a></div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactanos</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+</head>
+<body>    
+    
+    <header>
+    <h1>Contactanos</h1>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Tesiub</a></li>
+        </ul>
+    </nav>
+</header>
+    <form id="contactForm">
+        <label for="genero">Género:</label><br>
+        <select id="genero" name="genero" required>
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option>
+            <option value="otro">Otro</option>
+        </select><br>
+        <label for="nombre">Nombre completo:</label><br>
+        <input type="text" id="nombre" name="nombre" required><br>
+        <label for="email">Correo electrónico:</label><br>
+        <input type="email" id="email" name="email" required><br>
+        <label for="mensaje">Mensaje:</label><br>
+        <textarea id="mensaje" name="mensaje" rows="4" required></textarea><br>
+        <input type="submit" value="Enviar">
+    </form>
+
+    <script src="../js/contactanos.js"></script>
+</body>
+</html>
+

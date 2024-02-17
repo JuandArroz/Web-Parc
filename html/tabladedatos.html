@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de datos</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+</head>
+<body>
+    
+    <header>
+        <h1>TesiUB Administración</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">TesiUB</a></li>                
+            </ul>
+        </nav>
+    </header>
+    <body onload="comprobar_sesionA()">
+        <div class="container">
+            <div class="section">
+                <button class="btn" id="boton" onclick="traerdatos()">Refrescar Tabla</button>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombres</th>
+                            <th>Apellidos</th>
+                            <th>Correo</th>
+                            <th>Contraseña</th>
+                            <th>Tipo de usuario</th>
+                        </tr>
+                    </thead>
+                    <tbody id ="tablauser">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </body>
+  
+    <script src="../js/tabladedatos.js"></script>
+    <script src="../js/sesion.js"></script>
+    <footer>
+        <div><a href="contactanos.html">Contactanos</a></div>
+    </footer>
+</body>
+</html>

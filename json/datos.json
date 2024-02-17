@@ -1,0 +1,43 @@
+[
+    {
+        "id":1,
+        "nombres":"Juan David",
+        "apellidos":"Ucros Cervantes",
+        "correo":"c01juandavid@gmail.com",
+        "pass":"Juanchopolo",
+        "tipouser":0
+    },    
+    {
+        "id":2,
+        "nombres":"Jorge Mario",
+        "apellidos":"Manotas Arroyo",
+        "correo":"jorgemanotas@gmail.com",
+        "pass":"Yorch",
+        "tipouser":0
+    },
+    {
+        "id":3,
+        "nombres":"Yulieth ",
+        "apellidos":"Fajardo Marquez",
+        "correo":"YulFajardo@gmail.com",
+        "pass":"Yuli3th",
+        "tipouser":1
+    },    
+    {
+        "id":4,
+        "nombres":"Felipe Andres",
+        "apellidos":"Donado Garcia",
+        "correo":"Felipe.DoGar@gmail.com",
+        "pass":"Phill",
+        "tipouser":2
+    },
+    {
+        "id": 5, 
+        "nombres": "Nuevo",
+        "apellidos": "Usuario",
+        "correo": "nuevousuario@example.com",
+        "pass": "contraseña",
+        "tipouser": 1
+    }    
+]
+
