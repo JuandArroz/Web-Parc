@@ -5,7 +5,7 @@ const veriflog = () => {
     let correo = document.getElementById("TXT_Correo").value
     let password = document.getElementById("Pass_Login").value
 
-    fetch('https://storage.googleapis.com/datos_tablas/datos.json')
+   fetch('https://storage.googleapis.com/datos_tablas/datos.json')
         .then(response => response.json())
         .then(data => {
             if (Array.isArray(data)) {
@@ -18,7 +18,21 @@ const veriflog = () => {
                     window.location = "../index.html";
 
                 } else {                    
-                    alert("Credenciales incorrectas")
+                    if(validado()){
+                        const nuevos = localStorage.getItem(JSON.parse("usuarios"));
+                        for(let iter of nuevos){
+                            if(iter.correo == correo && iter.pass == password){
+                                console.log(iter)
+                                console.log('Comprobación correcta');
+                                alert("Bienvenido, " + usuarioEncontrado.nombres);                    
+                                const userses = JSON.stringify(usuarioEncontrado);
+                                localStorage.setItem('sesionusuario', userses);   
+                                window.location = "../index.html";
+                            }
+                        }                        
+                    }else{
+                        alert("Credenciales incorrectas")
+                    }                  
                 }
             } else {
                 console.error('Los datos no son un array:', data);
