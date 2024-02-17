@@ -9,9 +9,8 @@ let nuevoUsuario = {
 
 
 const agregarUsuario = () => {
-    console.log(nuevoUsuario);
+    console.log(JSON.stringify(nuevoUsuario));
 
-}
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
