@@ -41,7 +41,7 @@ const indesesion = () => {
 }
 
 const limpiar_sesion = () =>{
-    localStorage.remove("sesionusuario");
+    localStorage.removeItem("sesionusuario");
     location.reload();
 }
 
