@@ -17,6 +17,10 @@ const agregarUsuario = () => {
         if (consulta.readyState == 4 && consulta.status == 200) {
             console.log(consulta.responseText);
         }
+        document.getElementById("TXT_Correo").value = '';
+        document.getElementById("TXT_Nombres").value = '';
+        document.getElementById("TXT_Apellidos").value = '';
+        document.getElementById("Pass_Usuario").value = '';
     };
 
     consulta.send(datos);
