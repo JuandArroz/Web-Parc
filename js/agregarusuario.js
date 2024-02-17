@@ -1,4 +1,4 @@
-var nuevoUsuario = {
+let nuevoUsuario = {
     id: getRandomInt(1000), 
     nombres: document.getElementById("TXT_Nombres").value,
     apellidos: document.getElementById("TXT_Apellidos").value,
