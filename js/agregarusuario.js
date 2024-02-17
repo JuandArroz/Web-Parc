@@ -9,12 +9,7 @@ var nuevoUsuario = {
 
 
 const agregarUsuario = () => {
-   if (localStorage.getItem("RegistroAct" != null)){
-        var nuevoU = JSON.parse(localStorage.getItem('nuevoUsuario'));
-        nuevoU = nuevoU.push(nuevoUsuario);
-   }
-   localStorage.setItem('RegistroAct',JSON.stringify(nuevoUsuario))
-   console.log(localStorage.getItem("RegistroAct"))
+   console.log(nuevoUsuario);
 }
 
 function getRandomInt(max) {
