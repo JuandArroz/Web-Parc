@@ -6,11 +6,15 @@ const nuevoUsuario = {
     pass: document.getElementById("Pass_Usuario").value,
     tipouser: document.getElementById("Select_TipoUsuario").value 
 };
+
+
 const agregarUsuario = () => {
-    
-   console.log(nuevoUsuario);
+   if (localStorage.getItem("RegistroAct")){
+        var nuevoU = JSON.parse(localStorage.getItem("nuevoUsuario"));
+        nuevoU = nuevoU.push(nuevoUsuario);
+   }
    localStorage.setItem("RegistroAct",JSON.stringify(nuevoUsuario))
-   
+   console.log(localStorage.getItem("RegistroAct"))
 }
 
 function getRandomInt(max) {
