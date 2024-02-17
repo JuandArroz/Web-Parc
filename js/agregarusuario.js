@@ -1,4 +1,4 @@
-const nuevoUsuario = {
+var nuevoUsuario = {
     id: getRandomInt(1000), 
     correo: document.getElementById("TXT_Correo").value,
     nombres: document.getElementById("TXT_Nombres").value,
