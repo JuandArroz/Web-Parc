@@ -120,3 +120,10 @@ ul{
     align-items: center;
    
 }
+
+
+#subtesis{
+    position: absolute;
+    left: 35%;
+    top: 35%;
+}
