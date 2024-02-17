@@ -19,7 +19,7 @@ const veriflog = () => {
 
                 } else {                    
                     if(validado()){
-                        const nuevos = localStorage.getItem(JSON.parse("usuarios"));
+                        const nuevos = JSON.parse(localStorage.getItem('usuarios'));
                         for(let iter of nuevos){
                             if(iter.correo == correo && iter.pass == password){
                                 console.log(iter)
