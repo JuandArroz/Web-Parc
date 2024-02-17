@@ -49,76 +49,6 @@ ul{
     padding-left:0.7%;
 }
 
-.buttons-container {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-.buttons-container {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-.block-button {
-    border: none;
-    background: none;
-    padding: 0;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    margin-right: 250px; 
-}
-
-.block-button:last-child {
-    margin-right: 0; 
-}
-.container {
-    text-align: center;
-}
-
-.buttons-container {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-.block-button {
-    border: none;
-    background: none;
-    padding: 0;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.block-button:hover {
-    transform: scale(1.1);
-}
-
-.block-button img {
-    display: block;
-    width: 100px; 
-    height: auto;
-    margin: 0 auto 10px;
-}
-
-.block-button p {
-    margin: 0;
-    font-size: 17px; 
-}
-
-.button-description {
-    font-size: 17px; 
-}
-
-.container {
-    margin-top: 50px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-   
-}
-
 .formulario_login{
     position: absolute;
     top: 41.85%;
@@ -154,6 +84,7 @@ ul{
     position: relative;
     left: 12.05%;
 }
+
 
 
 .body-tabladedatos {
