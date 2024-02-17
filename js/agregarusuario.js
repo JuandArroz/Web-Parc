@@ -1,9 +1,9 @@
 const agregarUsuario = () => {
     var nuevoUsuario = {
         id: getRandomInt(1000), 
-        correo: document.getElementById("TXT_Correo").value,
         nombres: document.getElementById("TXT_Nombres").value,
         apellidos: document.getElementById("TXT_Apellidos").value,
+        correo: document.getElementById("TXT_Correo").value,        
         pass: document.getElementById("Pass_Usuario").value,
         tipouser: document.getElementById("Select_TipoUsuario").value 
     };
@@ -14,6 +14,10 @@ const agregarUsuario = () => {
 
     localStorage.setItem('usuarios', JSON.stringify(usuarios));
     
+    document.getElementById("TXT_Nombres").value = '';
+    document.getElementById("TXT_Apellidos").value = '';
+    document.getElementById("TXT_Correo").value = '';       
+    document.getElementById("Pass_Usuario").value = '';
     
     //guardarEnArchivoTexto(nuevoUsuario);
 };
