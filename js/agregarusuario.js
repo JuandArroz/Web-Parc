@@ -8,7 +8,7 @@ const nuevoUsuario = {
 };
 const agregarUsuario = () => {
     
-    console.log(JSON.stringify(nuevoUsuario))
+    console.log(nuevoUsuario);
 }
 
 function getRandomInt(max) {
