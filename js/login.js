@@ -42,3 +42,11 @@ const veriflog = () => {
         console.error('Error de archivo JSON:', error);
     });
 }
+
+let validado = () => {
+    if(localStorage.getItem("usuarios") != null){
+        return true;
+    }else{
+        return false;
+    }
+}
