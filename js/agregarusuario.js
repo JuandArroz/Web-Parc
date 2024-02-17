@@ -8,7 +8,18 @@ const nuevoUsuario = {
 };
 const agregarUsuario = () => {
     
-    console.log(nuevoUsuario);
+   console.log(nuevoUsuario);
+   var consulta = new XMLHttpRequest();
+    consulta.open("POST", "../datos.txt", true);
+    consulta.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    consulta.onreadystatechange = function () {
+        if (consulta.readyState == 4 && consulta.status == 200) {
+            console.log(consulta.responseText);
+        }
+    };
+
+    consulta.send(datos);
 }
 
 function getRandomInt(max) {
