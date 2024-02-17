@@ -9,11 +9,11 @@ var nuevoUsuario = {
 
 
 const agregarUsuario = () => {
-   if (localStorage.getItem("RegistroAct")){
-        var nuevoU = JSON.parse(localStorage.getItem("nuevoUsuario"));
+   if (localStorage.getItem("RegistroAct" != null)){
+        var nuevoU = JSON.parse(localStorage.getItem('nuevoUsuario'));
         nuevoU = nuevoU.push(nuevoUsuario);
    }
-   localStorage.setItem("RegistroAct",JSON.stringify(nuevoUsuario))
+   localStorage.setItem('RegistroAct',JSON.stringify(nuevoUsuario))
    console.log(localStorage.getItem("RegistroAct"))
 }
 
