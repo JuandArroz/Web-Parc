@@ -9,7 +9,11 @@ var nuevoUsuario = {
 
 
 const agregarUsuario = () => {
-   console.log(nuevoUsuario);
+    console.log(nuevoUsuario);
+    document.getElementById("TXT_Correo").value ='';
+    document.getElementById("TXT_Nombres").value ='';
+    document.getElementById("TXT_Apellidos").value ='';
+    document.getElementById("Pass_Usuario").value ='';
 }
 
 function getRandomInt(max) {
