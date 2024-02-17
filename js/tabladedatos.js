@@ -1,3 +1,10 @@
+let validado = () => {
+    if(localStorage.getItem("usuarios") != null){
+        return true;
+    }else{
+        return false;
+    }
+}
 
 const traerdatos = () => {
     
@@ -11,7 +18,7 @@ const traerdatos = () => {
 
     xhttp.onreadystatechange = function() {
         
-        if(this.readyState == 4 && this.status == 200){
+        if(this.readyState == 4 && this.status){
 
             let datos = JSON.parse(this.responseText);
             let tablauser = document.querySelector('#tablauser');
@@ -26,10 +33,24 @@ const traerdatos = () => {
                 <th>${item.pass}</th>
                 <th>${item.tipouser}</th>
             </tr>
-            `
-           
-             
+            `                        
             }
+        }
+        if(validado()){
+            let nuevos = JSON.parse(localStorage.getItem("usuarios"));
+            for(let unico of nuevos){
+                tablauser.innerHTML += `
+                <tr>
+                <th>${unico.nombres}</th>
+                <th>${unico.apellidos}</th>
+                <th>${unico.correo}</th>
+                <th>${unico.pass}</th>
+                <th>${unico.tipouser}</th>
+                </tr>
+                `
+            }
+        }else{
+            console.log("LocalStorage vacío");
         }
     }
 
