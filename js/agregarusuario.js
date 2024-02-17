@@ -18,12 +18,7 @@ const agregarUsuario = () => {
     document.getElementById("TXT_Apellidos").value = '';
     document.getElementById("TXT_Correo").value = '';       
     document.getElementById("Pass_Usuario").value = '';
-    
-    //guardarEnArchivoTexto(nuevoUsuario);
 };
-
-const guardarEnArchivoTexto = (usuario) => {
-}
 
 const getRandomInt = (max) => {
     return Math.floor(Math.random() * max);
