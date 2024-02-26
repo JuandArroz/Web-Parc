@@ -56,11 +56,12 @@ ul {
     background-color:
     padding: 20px; 
     border-radius: 5px; 
+    max-width: 300px;
     width: 30%; 
 }
 
 #contactForm {
-    width: 50%; /* Ajustado al 100% del contenedor */
+    width: 50%; 
 }
 
 #contactForm label {
