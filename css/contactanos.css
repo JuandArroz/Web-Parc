@@ -51,16 +51,16 @@ ul {
 .formulario_contacto {
     margin-top: 50px;
     display: flex;
-    justify-content: center; /* Cambiado para centrar el formulario */
+    justify-content: center; 
     align-items: center;
-    background-color: #cceeff; /* Color de fondo azul */
-    padding: 20px; /* Espacio alrededor del formulario */
-    border-radius: 5px; /* Bordes redondeados */
-    width: 50%; /* Ancho del formulario */
+    background-color:
+    padding: 20px; 
+    border-radius: 5px; 
+    width: 30%; 
 }
 
 #contactForm {
-    width: 100%; /* Ajustado al 100% del contenedor */
+    width: 50%; /* Ajustado al 100% del contenedor */
 }
 
 #contactForm label {
@@ -72,7 +72,7 @@ ul {
 #contactForm input[type="text"],
 #contactForm input[type="email"],
 #contactForm textarea {
-    width: 100%;
+    width: 50%;
     padding: 8px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
@@ -81,11 +81,11 @@ ul {
 }
 
 #contactForm textarea {
-    height: 100px;
+    height: 50px;
 }
 
 #contactForm input[type="submit"] {
-    background-color: #FFBF0C; /* Color de fondo amarillo */
+    background-color: #FFBF0C; 
     color: #ffffff;
     border: none;
     padding: 10px 20px;
