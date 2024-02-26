@@ -39,26 +39,28 @@ footer {
     width: 100%;
    
 }
-
-ul{
+ul {
     display: inline-block;
 }
 
-#opc4, #delog{
+#opc4, #delog {
     color: #FFBF0C;
-    padding-left:0.7%;
+    padding-left: 0.7%;
 }
 
 .formulario_contacto {
     margin-top: 50px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center; /* Cambiado para centrar el formulario */
     align-items: center;
+    background-color: #cceeff; /* Color de fondo azul */
+    padding: 20px; /* Espacio alrededor del formulario */
+    border-radius: 5px; /* Bordes redondeados */
+    width: 50%; /* Ancho del formulario */
 }
 
 #contactForm {
-    width: 80%;
-    margin: 0 auto;
+    width: 100%; /* Ajustado al 100% del contenedor */
 }
 
 #contactForm label {
@@ -83,7 +85,7 @@ ul{
 }
 
 #contactForm input[type="submit"] {
-    background-color: #1F3A5C;
+    background-color: #FFBF0C; /* Color de fondo amarillo */
     color: #ffffff;
     border: none;
     padding: 10px 20px;
@@ -92,5 +94,5 @@ ul{
 }
 
 #contactForm input[type="submit"]:hover {
-    background-color: #0E1E31;
+    background-color: #FFA500; 
 }
