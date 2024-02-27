@@ -27,6 +27,7 @@ const traerdatos = () => {
             for(let item of datos ){
                 tablauser.innerHTML += `   
                 <tr>
+                <th>${item.id}</th>
                 <th>${item.nombres}</th>
                 <th>${item.apellidos}</th>
                 <th>${item.correo}</th>
@@ -41,6 +42,7 @@ const traerdatos = () => {
             for(let unico of nuevos){
                 tablauser.innerHTML += `
                 <tr>
+                <th>${unico.id}</th>
                 <th>${unico.nombres}</th>
                 <th>${unico.apellidos}</th>
                 <th>${unico.correo}</th>
