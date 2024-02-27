@@ -6,7 +6,7 @@
     <title>Tabla de datos</title>
      <link rel="stylesheet" href="../css/tablasdedatos.css">
 </head>
-<body>
+<body onload="comprobar_sesionA(); traerdatos()">
     
     <header>
         <h1>TesiUB Administración</h1>
@@ -16,7 +16,6 @@
             </ul>
         </nav>
     </header>
-    <body onload="comprobar_sesionA()">
         <div class="container">
             <div class="section">
                 <button class="btn" id="boton" onclick="traerdatos()">Refrescar Tabla</button>
@@ -37,8 +36,6 @@
                 </table>
             </div>
         </div>
-
-    </body>
   
     <script src="../js/tabladedatos.js"></script>
     <script src="../js/sesion.js"></script>
