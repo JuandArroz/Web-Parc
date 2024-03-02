@@ -9,12 +9,12 @@ const indesesion = () => {
     if(sesionusuario){
         switch(sesionusuario.tipouser){
             case 0:
-                opc4.innerHTML = `                                       
-                    <li><a href="html/tabladedatos.html">Tabla de Datos</a></li>
-                    <li><a href="html/agregarusuario.html">Registro de usuarios</a></li>
-                    <li><a href="html/propuestas_revi.html">Propuestas estudiantes</a></li>
-                    <li>Administrador: ${sesionusuario.nombres} ${sesionusuario.apellidos}<li>
-                    <li><button id="delog" onclick="limpiar_sesion()">Cerrar sesión</button></li>
+                opc4.innerHTML = `
+                    <a class="nav-item nav-link active text-warning" href="html/tabladedatos.html">Tabla de Datos<span class="sr-only"></span></a>
+                    <a class="nav-item nav-link active text-warning" href="html/agregarusuario.html">Registro de usuarios<span class="sr-only"></span></a>
+                    <a class="nav-item nav-link active text-warning" href="html/propuestas_revi.html">Propuestas estudiantes<span class="sr-only"></span></a>
+                    <div>Administrador: ${sesionusuario.nombres} ${sesionusuario.apellidos}</div>
+                    <div><button id="delog" onclick="limpiar_sesion()">Cerrar sesión</button></div>
                 `
                 break;
         
