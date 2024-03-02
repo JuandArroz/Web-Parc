@@ -9,7 +9,7 @@ const indesesion = () => {
     if(sesionusuario){
         switch(sesionusuario.tipouser){
             case 0:
-                opc4.innerHTML = `
+                opc4.innerHTML += `
                     <a class="nav-item nav-link active text-warning" href="html/tabladedatos.html">Tabla de Datos<span class="sr-only"></span></a>
                     <a class="nav-item nav-link active text-warning" href="html/agregarusuario.html">Registro de usuarios<span class="sr-only"></span></a>
                     <a class="nav-item nav-link active text-warning" href="html/propuestas_revi.html">Propuestas estudiantes<span class="sr-only"></span></a>
@@ -19,23 +19,23 @@ const indesesion = () => {
                 break;
         
             case 1:
-                opc4.innerHTML = `
-                    <li><a href="html/propuestas_revi.html">Propuestas estudiantes</a></li>
-                    <li>Docente: ${sesionusuario.nombres} ${sesionusuario.apellidos}<li>
-                    <li><button id="delog" onclick="limpiar_sesion()">Cerrar sesión</button></li>
+                opc4.innerHTML += `
+                    <a class="nav-item nav-link active text-warning" href="html/propuestas_revi.html">Propuestas estudiantes<span class="sr-only"></span></a>
+                    <div class="text-warning">Docente: ${sesionusuario.nombres} ${sesionusuario.apellidos}</div>
+                    <div><button class="btn btn-warning" id="delog" onclick="limpiar_sesion()">Cerrar sesión</button></div>
                 `
                 break;
         
             case 2:
-                opc4.innerHTML = `
-                    <li>Estudiante: ${sesionusuario.nombres} ${sesionusuario.apellidos}<li>
-                    <li><button id="delog" onclick="limpiar_sesion()">Cerrar sesión</button></li>
+                opc4.innerHTML += `
+                    <div class="text-warning">Estudiante: ${sesionusuario.nombres} ${sesionusuario.apellidos}</div>
+                    <div><button class="btn btn-warning" id="delog" onclick="limpiar_sesion()">Cerrar sesión</button></div>
                 `
                 break;
         }
     }else{
-        opc4.innerHTML = `
-        <li><a href="html/login.html">Login</a></li>
+        opc4.innerHTML += `
+        <a class="nav-item nav-link active text-warning" href="html/login.html">Login<span class="sr-only"></span></a>
         `
     }
 }
