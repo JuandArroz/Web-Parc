@@ -3,7 +3,7 @@ const sesionusuario = JSON.parse(sesionusuarioJSON);
 
 const indesesion = () => {
 
-    let opc4 = document.querySelector('#opc3');
+    let opc4 = document.querySelector('#opc4');
     opc4.innerHTML += '';
 
     if(sesionusuario){
