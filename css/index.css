@@ -5,10 +5,14 @@ body {
 }
 
 header {
-    background-color: #1F3A5C;
+    background-color: #011b32;
     color: #ffffff;
     padding: 10px 0;
     text-align: center;
+}
+
+h1 {
+    margin-bottom: 2px;
 }
 
 nav {
