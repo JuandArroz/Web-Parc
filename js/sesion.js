@@ -13,8 +13,8 @@ const indesesion = () => {
                     <a class="nav-item nav-link active text-warning" href="html/tabladedatos.html">Tabla de Datos<span class="sr-only"></span></a>
                     <a class="nav-item nav-link active text-warning" href="html/agregarusuario.html">Registro de usuarios<span class="sr-only"></span></a>
                     <a class="nav-item nav-link active text-warning" href="html/propuestas_revi.html">Propuestas estudiantes<span class="sr-only"></span></a>
-                    <div>Administrador: ${sesionusuario.nombres} ${sesionusuario.apellidos}</div>
-                    <div><button id="delog" onclick="limpiar_sesion()">Cerrar sesión</button></div>
+                    <div class="text-warning">Administrador: ${sesionusuario.nombres} ${sesionusuario.apellidos}</div>
+                    <div><button class="btn btn-warning" id="delog" onclick="limpiar_sesion()">Cerrar sesión</button></div>
                 `
                 break;
         
