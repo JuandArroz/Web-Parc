@@ -14,7 +14,7 @@ const indesesion = () => {
                     <a class="nav-item nav-link active text-warning" href="html/agregarusuario.html">Registro de usuarios<span class="sr-only"></span></a>
                     <a class="nav-item nav-link active text-warning" href="html/propuestas_revi.html">Propuestas estudiantes<span class="sr-only"></span></a>
                     <div class="text-warning">Administrador: ${sesionusuario.nombres} ${sesionusuario.apellidos}</div>
-                    <div><button class="btn btn-warning" id="delog" onclick="limpiar_sesion()">Cerrar sesión</button></div>
+                    <div><button class="btn btn-warning" id="delog" onclick="limpiar_sesion()" style="text-color:#011b32;">Cerrar sesión</button></div>
                 `
                 break;
         
@@ -22,14 +22,14 @@ const indesesion = () => {
                 opc4.innerHTML += `
                     <a class="nav-item nav-link active text-warning" href="html/propuestas_revi.html">Propuestas estudiantes<span class="sr-only"></span></a>
                     <div class="text-warning">Docente: ${sesionusuario.nombres} ${sesionusuario.apellidos}</div>
-                    <div><button class="btn btn-warning" id="delog" onclick="limpiar_sesion()">Cerrar sesión</button></div>
+                    <div><button class="btn btn-warning" id="delog" onclick="limpiar_sesion()" style="text-color:#011b32;">Cerrar sesión</button></div>
                 `
                 break;
         
             case 2:
                 opc4.innerHTML += `
                     <div class="text-warning">Estudiante: ${sesionusuario.nombres} ${sesionusuario.apellidos}</div>
-                    <div><button class="btn btn-warning" id="delog" onclick="limpiar_sesion()">Cerrar sesión</button></div>
+                    <div><button class="btn btn-warning" id="delog" onclick="limpiar_sesion()" style="text-color:#011b32;">Cerrar sesión</button></div>
                 `
                 break;
         }
