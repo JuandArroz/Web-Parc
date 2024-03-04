@@ -35,7 +35,7 @@ const indesesion = () => {
         }
     }else{
         opc4.innerHTML += `
-        <a class="nav-item nav-link active text-warning" href="html/login.html">Login<span class="sr-only"></span></a>
+        <a class="nav-item nav-link active text-light" href="html/login.html">Login<span class="sr-only"></span></a>
         `
     }
 }
