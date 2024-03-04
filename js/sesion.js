@@ -58,6 +58,9 @@ const indesesion = () => {
             <li class="nav-item">
                 <a class="nav-link text-light" href="html/login.html">Login</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="html/register.html">Registrarse</a>
+            </li>
         `
     }
 }
