@@ -1,0 +1,13 @@
+@font-face {
+    font-family:oktah;
+    src: url(../img/Fontspring-DEMO-oktah_round_semibold-BF6407f0f68acb4.otf);
+}
+
+#barra1{
+    font-family:oktah;
+    background-color: #011b32;
+}
+
+#delog{
+    color:#011b32;
+}
