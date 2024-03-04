@@ -33,15 +33,23 @@
         </div>
       </nav>
 
-    <form id="contactForm">
-        <label for="nombre">Nombre de compañero:</label><br>
-        <input type="text" id="nombre" name="nombre" required><br>
-        <label for="email">Correo electrónico de compañero:</label><br>
-        <input type="email" id="email" name="email" required><br>
-        <label for="mensaje">Descripción de la propuesta:</label><br>
-        <textarea id="mensaje" name="mensaje" rows="4" required></textarea><br>
-        <input type="submit" value="Enviar">
-    </form>
+    <form>
+                <label class="Label_Usuario" for="TXT_Correo">Correo Electrónico:</label><br>
+                <input type="text" class="Field_Usuario" id="TXT_Correo" required><br><br>
+                <label class="Label_Usuario" for="TXT_Nombres">Nombres:</label><br>
+                <input type="text" class="Field_Usuario" id="TXT_Nombres" required><br><br>
+                <label class="Label_Usuario" for="TXT_Apellidos">Apellidos:</label><br>
+                <input type="text" class="Field_Usuario" id="TXT_Apellidos" required><br><br>
+                <label class="Label_Usuario" for="Pass_Usuario">Contraseña:</label><br>
+                <input type="password" class="Field_Usuario" id="Pass_Usuario" required><br><br>
+                <label class="Label_Usuario" for="Select_TipoUsuario">Tipo de Usuario:</label><br>
+                <select id="Select_TipoUsuario">
+                    <option value="0">Administrador</option>
+                    <option value="1">Docente</option>
+                    <option value="2">Estudiante</option>
+                </select><br><br>
+                <input type="button" value="Agregar Usuario" id="Button_AgregarUsuario" onclick='agregarUsuario()'>
+            </form>
     
     <script src="../js/sesion.js"></script>
 </body>
