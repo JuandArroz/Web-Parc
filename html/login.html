@@ -9,17 +9,19 @@
 </head>
 <body class="container-fluid">
         <div class="row">
-            <div class="col-lg-6" id="login-cont">
-                <img src="../img/tesiub_nobg.png" alt="TESIUB" class="img-fluid">
+            <div class="col-lg-7 position-relative" id="login-cont">
+                <img src="../img/tesiub_nobg.png" alt="TESIUB" width="500" height="500" class="img-fluid position-absolute top-50 start-50 translate-middle">
             </div>
-            <div class="col-lg-6 bg-light" id="login-cont2" style="font-family:oktah;">
-                <a href="../index.html"><span>Volver</span></a>
+            <div class="col-lg-5 bg-light" id="login-cont2" style="font-family:oktah;">
+                <div id="regreso">
+                    <a class="nav-link" href="../index.html"><img src="../img/revert_icon.png" alt="Volver" height="30" width="30"><span style="color:#808080;">Retroceder</span></a>
+                </div>
                 <form>
                     <label class="Label_Login" for="TXT_Correo">Correo Electronico: </label><br>
                     <input type="text" class="Field_Login" id="TXT_Correo" required><br><br>
                     <label class="Label_Login" for="Pass_Login">Contrasena: </label><br>
                     <input type="password" class="Field_Login" id="Pass_Login" required><br><br>
-                    <input type="button" class="btn btn-warning text-light" value="Iniciar sesion" id="Button_Login" onclick='veriflog()'>
+                    <input type="button" class="btn btn-warning" value="Iniciar sesion" id="Button_Login" onclick='veriflog()'>
                 </form>
             </div>
         </div>
