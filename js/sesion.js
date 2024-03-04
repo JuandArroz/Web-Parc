@@ -10,32 +10,54 @@ const indesesion = () => {
         switch(sesionusuario.tipouser){
             case 0:
                 opc4.innerHTML += `
-                    <a class="nav-item nav-link active text-warning" href="html/tabladedatos.html">Tabla de Datos<span class="sr-only"></span></a>
-                    <a class="nav-item nav-link active text-warning" href="html/agregarusuario.html">Registro de usuarios<span class="sr-only"></span></a>
-                    <a class="nav-item nav-link active text-warning" href="html/propuestas_revi.html">Propuestas estudiantes<span class="sr-only"></span></a>
-                    <div class="text-warning">Administrador: ${sesionusuario.nombres} ${sesionusuario.apellidos}</div>
-                    <div><button class="btn btn-warning" id="delog" onclick="limpiar_sesion()" style="text-color:#011b32;">Cerrar sesión</button></div>
+                    <li class="nav-item">
+                        <a class="nav-link text-warning" href="html/tabladedatos.html">Tabla de datos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-warning" href="html/agregarusuario.html">Agregar usuario</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-warning" href="html/propuestas_revi.html">Propuestas</a>
+                    </li>                                        
+                    <li class="nav-item">
+                        <span class="nav-link text-warning">Administrador: ${sesionusuario.nombres} ${sesionusuario.apellidos}</span>
+                    </li>
+                    <li class="nav-item">
+                    <button class="btn btn-warning" id="delog" onclick="limpiar_sesion()">Cerrar sesion</button>
+                    </li>                                         
                 `
                 break;
         
             case 1:
                 opc4.innerHTML += `
-                    <a class="nav-item nav-link active text-warning" href="html/propuestas_revi.html">Propuestas estudiantes<span class="sr-only"></span></a>
-                    <div class="text-warning">Docente: ${sesionusuario.nombres} ${sesionusuario.apellidos}</div>
-                    <div><button class="btn btn-warning" id="delog" onclick="limpiar_sesion()" style="text-color:#011b32;">Cerrar sesión</button></div>
+                    <li class="nav-item">
+                        <a class="nav-link text-warning" href="html/propuestas_revi.html">Propuestas</a>
+                    </li>
+                    <li class="nav-item">
+                        <span class="nav-link text-warning">Docente: ${sesionusuario.nombres} ${sesionusuario.apellidos}</span>
+                    </li>
+                    <li class="nav-item">
+                    <button class="btn btn-warning" id="delog" onclick="limpiar_sesion()">Cerrar sesion</button>
+                    </li>                       
                 `
                 break;
         
             case 2:
                 opc4.innerHTML += `
-                    <div class="text-warning">Estudiante: ${sesionusuario.nombres} ${sesionusuario.apellidos}</div>
-                    <div><button class="btn btn-warning" id="delog" onclick="limpiar_sesion()" style="text-color:#011b32;">Cerrar sesión</button></div>
+                    <li class="nav-item">
+                        <span class="nav-link text-light">Estudiante: ${sesionusuario.nombres} ${sesionusuario.apellidos}</span>
+                    </li>                    
+                    <li class="nav-item">
+                        <button class="btn btn-warning" id="delog" onclick="limpiar_sesion()">Cerrar sesion</button>
+                    </li>      
                 `
                 break;
         }
     }else{
         opc4.innerHTML += `
-        <a class="nav-item nav-link active text-light font-weight-bold" href="html/login.html">Login<span class="sr-only"></span></a>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="html/login.html">Login</a>
+            </li>
         `
     }
 }
