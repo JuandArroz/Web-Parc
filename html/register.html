@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+</head>
+<body>
+    <form>
+    
+        <label class="Label_Usuario" for="TXT_Nombres">Nombres:</label><br>
+        <input type="text" class="Field_Usuario" id="TXT_Nombres" required><br><br>
+        <label class="Label_Usuario" for="TXT_Apellidos">Apellidos:</label><br>
+        <input type="text" class="Field_Usuario" id="TXT_Apellidos" required><br><br>
+        <label for="genero">Género:</label><br>
+        <select id="genero" name="genero" required>
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option>
+            <option value="otro">Otro</option>
+        </select><br>
+        <label class="Label_Usuario" for="TXT_Correo">Correo Electrónico:</label><br>
+        <input type="text" class="Field_Usuario" id="TXT_Correo" required><br><br>
+        <label class="Label_Usuario" for="Pass_Usuario">Contraseña:</label><br>
+        <input type="password" class="Field_Usuario" id="Pass_Usuario" required><br><br>
+        <input type="button" value="Registrarse" id="Button_Registrarse" onclick='Registrarse()'>
+    </form>
+</body>
+</html>
