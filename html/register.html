@@ -6,6 +6,23 @@
     <title>Registro</title>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary pt-0">
+        <div id="barra1" class="container-fluid">
+            <a class="navbar-brand text-light" href="../index.html">
+                <img src="../img/tesiub_nobg.png" alt="TESIUB" width="50" height="50">
+              </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <button class="btn btn-warning" id="delog" onclick="limpiar_sesion()">Cerrar sesion</button>
+            </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     <form>
         <label class="Label_Usuario" for="TXT_Correo">Correo Electrónico:</label><br>
         <input type="text" class="Field_Usuario" id="TXT_Correo" required><br><br>
@@ -15,8 +32,8 @@
         <input type="text" class="Field_Usuario" id="TXT_Apellidos" required><br><br>
         <label class="Label_Usuario" for="Pass_Usuario">Contraseña:</label><br>
         <input type="password" class="Field_Usuario" id="Pass_Usuario" required><br><br>
-        <input type="button" value="Agregar Usuario" id="Button_AgregarUsuario" onclick='agregarUsuario()'>
+        <input type="button" value="Agregar Usuario" id="Button_AgregarUsuario" onclick='registro()'>
     </form>
-    <script src="../js/agregarusuario.js">alert(window.location.href)</script>
+    <script src="../js/agregarusuario.js"></script>
 </body>
 </html>
