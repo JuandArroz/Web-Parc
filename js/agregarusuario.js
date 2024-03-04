@@ -6,7 +6,7 @@ var nuevoUsuario = {
         pass: document.getElementById("Pass_Usuario").value,
         tipouser: document.getElementById("Select_TipoUsuario").value;
     };
-if(!(nuevoUsuario.tipouser)){
+if(nuevoUsuario.tipouser == null){
     nuevoUsuario.tipouser = 2;
 }
 const agregarUsuario = () => {
