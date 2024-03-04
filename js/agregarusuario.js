@@ -6,9 +6,7 @@ var nuevoUsuario = {
         pass: document.getElementById("Pass_Usuario").value,
         tipouser: document.getElementById("Select_TipoUsuario").value;
     };
-if(nuevoUsuario.tipouser == null){
-    nuevoUsuario.tipouser = 2;
-}
+
 const agregarUsuario = () => {
     let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
 
@@ -20,7 +18,22 @@ const agregarUsuario = () => {
     document.getElementById("TXT_Apellidos").value = '';
     document.getElementById("TXT_Correo").value = '';       
     document.getElementById("Pass_Usuario").value = '';
-};
+}
+
+const registro = () => {
+        nuevoUsuario.tipouser = 2;
+        let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+        
+        usuarios.push(nuevoUsuario);
+        
+        localStorage.setItem('usuarios', JSON.stringify(usuarios));
+        
+        document.getElementById("TXT_Nombres").value = '';
+        document.getElementById("TXT_Apellidos").value = '';
+        document.getElementById("TXT_Correo").value = '';       
+        document.getElementById("Pass_Usuario").value = '';
+        window.location = "../index.html";
+}
 
 const getRandomInt = (max) => {
     return Math.floor(Math.random() * max);
