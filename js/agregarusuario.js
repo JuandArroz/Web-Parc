@@ -5,7 +5,7 @@ const agregarUsuario = () => {
                 apellidos: document.getElementById("TXT_Apellidos").value,
                 correo: document.getElementById("TXT_Correo").value,        
                 pass: document.getElementById("Pass_Usuario").value,
-                tipouser: document.getElementById("Select_TipoUsuario").value;
+                tipouser: document.getElementById("Select_TipoUsuario").value
         };
     let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
 
