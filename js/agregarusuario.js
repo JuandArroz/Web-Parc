@@ -7,7 +7,7 @@ const agregarUsuario = () => {
                 pass: document.getElementById("Pass_Usuario").value,
                 tipouser: document.getElementById("Select_TipoUsuario").value
         };
-    if(validarPassword(nuevoUsuario.pass)){
+    if(nuevoUsuario.pass && validarPassword(nuevoUsuario.pass)){
             alert("Contraseña correcta");
                 manejoDatos(nuevoUsuario);
         }else{
@@ -24,7 +24,7 @@ const registro = () => {
                 pass: document.getElementById("Pass_Usuario").value,
                 tipouser: 2
         };
-        if(validarPassword(nuevoUsuario.pass)){
+        if(nuevoUsuario.pass && validarPassword(nuevoUsuario.pass)){
                 manejoDatos(nuevoUsuario);
                 window.location = "../index.html";
         }else{
