@@ -1,7 +1,6 @@
 const agregarUsuario = () => {
     var password = document.getElementById("Pass_Usuario").value;
     if(password && validarPassword(password)){
-        alert("Contraseña correcta");
         var nuevoUsuario = {
             id: getRandomInt(1000), 
             nombres: document.getElementById("TXT_Nombres").value,
