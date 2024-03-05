@@ -6,7 +6,7 @@
     <title>Form</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-</head>
+
     <body class="container-fluid">
         <div class="row">
             <div class="col-lg-7 position-relative" id="login-cont">
@@ -15,22 +15,29 @@
                 </div>
                 <form id="contactForm">
                         <label for="genero">Género:</label><br>
-                        <select id="genero" name="genero" required>
+                        <select class="form-select form-select-sm" id="genero" name="genero" required>
+                            <option selected>Selecciona tu genero</option>
                             <option value="masculino">Masculino</option>
                             <option value="femenino">Femenino</option>
                             <option value="otro">Otro</option>
                         </select><br>
-                        <label for="nombre">Nombre completo:</label><br>
-                        <input type="text" id="nombre" name="nombre" required><br>
-                        <label for="email">Correo electrónico:</label><br>
-                        <input type="email" id="email" name="email" required><br>
-                        <label for="mensaje">Mensaje:</label><br>
-                        <textarea id="mensaje"  name="mensaje" rows="4" required></textarea><br>
+                        <div class="col-md-8">
+                            <label for="nombre" >Nombre completo:</label><br>
+                            <input id="nombre_completo" name="nombre" type="text" placeholder="Ingrese su nombre completo" class="form-control">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="email" >Correo electrónico:</label><br>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Ingrese su correo" required><br>
+                        </div>
+                        <div class="col-md-8">
+                            <label for="mensaje">Mensaje:</label><br>
+                            <textarea class="form-control" id="mensaje" name="mensaje" placeholder="Ingrense su mensaje" rows="7"></textarea><br>
+                        </div>
                         <input type="submit" class="btn btn-warning value="Enviar">
                 </form>
             </div>
 
-            <div class="col-lg-5 bg-warning" id="login-cont2" style="font-family:oktah;">
+            <div class="col-lg-5 bg-warning" id="contactanos-2" style="font-family:oktah;">
                     <h5 class="text-uppercase  mb-4 font-weight-bold text-dark">También puedes contactarnos por:</h5>
                         <p>
                             <i class="fas fa-envelope mr-3"> jmmanotas@gmail.com</i>
@@ -71,6 +78,7 @@
             </div>
         </div>
         </div>
+
 
     <script src="../js/contactanos.js"></script>
 </body>
