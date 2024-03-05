@@ -25,16 +25,16 @@ const traerdatos = () => {
             tablauser.innerHTML = '';
 
             for(let item of datos ){
-                tablauser.innerHTML += `   
+                tablauser.innerHTML += `
                 <tr>
-                <th>${item.id}</th>
-                <th>${item.nombres}</th>
-                <th>${item.apellidos}</th>
-                <th>${item.correo}</th>
-                <th>${item.pass}</th>
-                <th>${item.tipouser}</th>
-            </tr>
-            `                        
+                    <th scope="row">${item.id}</th>
+                    <td>${item.nombres}</td>
+                    <td>${item.apellidos}</td>
+                    <td>${item.correo}</td>
+                    <td>${item.pass}</td>
+                    <td>${item.tipouser}</td>
+                </tr>
+                `                        
             }
         }
         if(validado()){
@@ -42,12 +42,12 @@ const traerdatos = () => {
             for(let unico of nuevos){
                 tablauser.innerHTML += `
                 <tr>
-                <th>${unico.id}</th>
-                <th>${unico.nombres}</th>
-                <th>${unico.apellidos}</th>
-                <th>${unico.correo}</th>
-                <th>${unico.pass}</th>
-                <th>${unico.tipouser}</th>
+                    <th scope="row">${item.id}</th>
+                    <td>${unico.nombres}</td>
+                    <td>${unico.apellidos}</td>
+                    <td>${unico.correo}</td>
+                    <td>${unico.pass}</td>
+                    <td>${unico.tipouser}</td>
                 </tr>
                 `
             }
