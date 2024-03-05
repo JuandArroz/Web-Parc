@@ -29,25 +29,27 @@
       </nav>
     </header>
         <div class="container">
-            <div class="section">
-                <button class="btn" id="boton" onclick="traerdatos()">Refrescar Tabla</button>
-
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Nombres</th>
-                            <th>Apellidos</th>
-                            <th>Correo</th>
-                            <th>Contraseña</th>
-                            <th>Tipo de usuario</th>
-                        </tr>
-                    </thead>
-                    <tbody id ="tablauser">
-
-                    </tbody>
-                </table>
-            </div>
+            <button class="btn btn-warning" id="boton" onclick="traerdatos()">Refrescar Tabla</button>
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombres</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Contraseña</th>
+                    <th scope="col">Tipo de usuario</th>                    
+                    </tr>
+                </thead>
+                <tbody id="tablauser">
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
   
     <script src="../js/tabladedatos.js"></script>
