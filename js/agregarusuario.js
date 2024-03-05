@@ -49,12 +49,8 @@ const manejoDatos = (nuevoUsuario) => {
 }
 
 const validarPassword = (password) => {
-    const decimal = /^(?=.*\d)(?=.*[a-z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
-    if(password.value.match(decimal)) {
-        return true;
-    } else {
-        return false;
-    }
+    const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+    return regex.test(password);
 }
 
 const getRandomInt = (max) => {
