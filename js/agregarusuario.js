@@ -8,6 +8,7 @@ const agregarUsuario = () => {
                 tipouser: document.getElementById("Select_TipoUsuario").value
         };
     if(validarPassword(nuevoUsuario.pass)){
+            alert("Contraseña correcta"):
                 manejoDatos(nuevoUsuario);
         }else{
                 alert("La contraseña no es segura. Debe contener:\n*Minimo 1 letra mayuscula\n*Minimo 1 letra minuscula\n*Minimo 1 numero\n*Minimo 1 caracter especial\n*Minimo 8 caracteres, maximo 15")
