@@ -42,7 +42,7 @@ const traerdatos = () => {
             for(let unico of nuevos){
                 tablauser.innerHTML += `
                 <tr>
-                    <th scope="row">${item.id}</th>
+                    <th scope="row">${unico.id}</th>
                     <td>${unico.nombres}</td>
                     <td>${unico.apellidos}</td>
                     <td>${unico.correo}</td>
