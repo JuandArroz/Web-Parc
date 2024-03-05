@@ -1,6 +1,7 @@
 const agregarUsuario = () => {
     var password = document.getElementById("Pass_Usuario").value;
-    if(password && validarPassword(password)){
+    if(validarCorreo(document.getElementById("TXT_Correo").value)){
+        if(password && validarPassword(password)){
         var nuevoUsuario = {
             id: getRandomInt(1000), 
             nombres: document.getElementById("TXT_Nombres").value,
@@ -10,9 +11,13 @@ const agregarUsuario = () => {
             tipouser: document.getElementById("Select_TipoUsuario").value
         };
         manejoDatos(nuevoUsuario);
-    } else {
-        alert("La contraseña no es segura. Debe contener:\n*Minimo 1 letra mayuscula\n*Minimo 1 letra minuscula\n*Minimo 1 numero\n*Minimo 1 caracter especial\n*Minimo 8 caracteres, maximo 15");
-    } 
+        } else {
+            alert("La contraseña no es segura. Debe contener:\n*Minimo 1 letra mayuscula\n*Minimo 1 letra minuscula\n*Minimo 1 numero\n*Minimo 1 caracter especial\n*Minimo 8 caracteres, maximo 15");
+        }
+    }else{
+        alert("Correo no valido. ")
+    }
+     
 }
 
 const registro = () => {
@@ -45,6 +50,11 @@ const manejoDatos = (nuevoUsuario) => {
         document.getElementById("TXT_Apellidos").value = '';
         document.getElementById("TXT_Correo").value = '';       
         document.getElementById("Pass_Usuario").value = '';
+}
+
+const validarCorreo = (emailInput) => {
+  var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailPattern.test(emailInput);
 }
 
 const validarPassword = (password) => {
