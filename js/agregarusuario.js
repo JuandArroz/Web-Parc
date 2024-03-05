@@ -27,7 +27,7 @@ const registro = () => {
                 apellidos: document.getElementById("TXT_Apellidos").value,
                 correo: document.getElementById("TXT_Correo").value,        
                 pass: document.getElementById("Pass_Usuario").value,
-                tipouser: 2;
+                tipouser: 2
         };
         let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
         
