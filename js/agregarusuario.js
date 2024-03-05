@@ -29,21 +29,31 @@ const agregarUsuario = () => {
 }
 
 const registro = () => {
-    var password = document.getElementById("Pass_Usuario").value;
-    if(password && validarPassword(password)){
-        var nuevoUsuario = {
-            id: getRandomInt(1000), 
-            nombres: document.getElementById("TXT_Nombres").value,
-            apellidos: document.getElementById("TXT_Apellidos").value,
-            correo: document.getElementById("TXT_Correo").value,        
-            pass: password,
-            tipouser: 2
-        };
-        manejoDatos(nuevoUsuario);
-        window.location = "../index.html";
-    } else {
-        alert("La contraseña no es segura. Debe contener:\n*Minimo 1 letra mayuscula\n*Minimo 1 letra minuscula\n*Minimo 1 numero\n*Minimo 1 caracter especial\n*Minimo 8 caracteres, maximo 15");
-    }     
+    if(validarNombre(document.getElementById("TXT_Nombres").value)){
+        if(validarNombre(document.getElementById("TXT_Apellidos").value)){
+            if(validarCorreo(document.getElementById("TXT_Correo").value)){
+                if(password && validarPassword(password)){
+                var nuevoUsuario = {
+                    id: getRandomInt(1000), 
+                    nombres: document.getElementById("TXT_Nombres").value,
+                    apellidos: document.getElementById("TXT_Apellidos").value,
+                    correo: document.getElementById("TXT_Correo").value,        
+                    pass: password,
+                    tipouser: 2
+                };
+                manejoDatos(nuevoUsuario);
+                } else {
+                    alert("La contraseña no es segura. Debe contener:\n*Minimo 1 letra mayuscula\n*Minimo 1 letra minuscula\n*Minimo 1 numero\n*Minimo 1 caracter especial\n*Minimo 8 caracteres, maximo 15");
+                }
+            }else{
+                alert("Correo no valido. ")
+            }  
+        }else{
+            alert("Apellido invalido");
+        }
+    }else{
+        alert("Nombre invalido");
+    }    
 }
 
 const manejoDatos = (nuevoUsuario) => {
