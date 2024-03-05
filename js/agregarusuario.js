@@ -1,4 +1,6 @@
 const agregarUsuario = () => {
+        var contra = document.getElementById("Pass_Usuario").value;
+        console.log(contra);
         var nuevoUsuario = {
                 id: getRandomInt(1000), 
                 nombres: document.getElementById("TXT_Nombres").value,
