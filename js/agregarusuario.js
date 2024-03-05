@@ -20,6 +20,7 @@ const agregarUsuario = () => {
 }
 
 const registro = () => {
+        alert("FUNCION ACTIVA");
         var nuevoUsuario = {
                 id: getRandomInt(1000), 
                 nombres: document.getElementById("TXT_Nombres").value,
