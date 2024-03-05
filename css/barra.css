@@ -13,13 +13,9 @@
 }
 
 #login-cont{
-    height: 782px;
-    background-color: #011b32;
+    height: 100vh;
 }
 
-#login-cont2{
-    height: 782px;
-}
 #foot1 {
      overflow-x: hidden;
 }
