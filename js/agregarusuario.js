@@ -1,13 +1,12 @@
-var nuevoUsuario = {
-        id: getRandomInt(1000), 
-        nombres: document.getElementById("TXT_Nombres").value,
-        apellidos: document.getElementById("TXT_Apellidos").value,
-        correo: document.getElementById("TXT_Correo").value,        
-        pass: document.getElementById("Pass_Usuario").value,
-        tipouser: document.getElementById("Select_TipoUsuario").value;
-    };
-
 const agregarUsuario = () => {
+        var nuevoUsuario = {
+                id: getRandomInt(1000), 
+                nombres: document.getElementById("TXT_Nombres").value,
+                apellidos: document.getElementById("TXT_Apellidos").value,
+                correo: document.getElementById("TXT_Correo").value,        
+                pass: document.getElementById("Pass_Usuario").value,
+                tipouser: document.getElementById("Select_TipoUsuario").value;
+        };
     let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
 
     usuarios.push(nuevoUsuario);
@@ -21,7 +20,14 @@ const agregarUsuario = () => {
 }
 
 const registro = () => {
-        nuevoUsuario.tipouser = 2;
+        var nuevoUsuario = {
+                id: getRandomInt(1000), 
+                nombres: document.getElementById("TXT_Nombres").value,
+                apellidos: document.getElementById("TXT_Apellidos").value,
+                correo: document.getElementById("TXT_Correo").value,        
+                pass: document.getElementById("Pass_Usuario").value,
+                tipouser: 2;
+        };
         let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
         
         usuarios.push(nuevoUsuario);
