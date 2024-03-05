@@ -29,6 +29,8 @@ const agregarUsuario = () => {
 }
 
 const registro = () => {
+    var password = document.getElementById("Pass_Usuario").value;
+    
     if(validarNombre(document.getElementById("TXT_Nombres").value)){
         if(validarNombre(document.getElementById("TXT_Apellidos").value)){
             if(validarCorreo(document.getElementById("TXT_Correo").value)){
