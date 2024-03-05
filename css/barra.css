@@ -20,3 +20,6 @@
 #login-cont2{
     height: 782px;
 }
+::-webkit-scrollbar {
+    display: none;
+}
