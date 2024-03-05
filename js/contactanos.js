@@ -20,6 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById("email").value = '';
         document.getElementById("mensaje").value = '';
 
-        alert("¡Gracias por contactarnos, " + nombre + "! Nos pondremos en contacto contigo pronto. Género: " + genero);
+        alert("¡Gracias por contactarnos, " + nombre + "! Nos pondremos en contacto contigo pronto.);
     };
 });
