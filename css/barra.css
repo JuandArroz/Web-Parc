@@ -20,10 +20,10 @@
      overflow-x: hidden;
 }
 
-.zoom{
-    transition: transform .5s;
+.zoom {
+    transition: transform .2s; 
 }
-
+ 
 .zoom:hover {
-    transform: scale(1);
+    transform: scale(1.5); 
 }
