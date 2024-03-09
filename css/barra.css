@@ -21,9 +21,9 @@
 }
 
 .zoomB {
-    transition: transform .2s; 
+    transition: transform .5s; 
 }
  
 .zoomB:hover {
-    transform: scale(1.5); 
+    transform: scale(1); 
 }
