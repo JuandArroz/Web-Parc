@@ -20,6 +20,11 @@
      overflow-x: hidden;
 }
 
+footer {
+  position: absolute;
+  bottom: 0;
+}
+
 .zoomB {
     transition: transform .5s; 
 }
