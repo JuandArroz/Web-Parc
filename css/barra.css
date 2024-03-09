@@ -19,3 +19,11 @@
 #foot1 {
      overflow-x: hidden;
 }
+
+.zoom{
+    transition: transform .5s;
+}
+
+.zoom:hover {
+    transform: scale(1);
+}
