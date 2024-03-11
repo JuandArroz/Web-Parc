@@ -7,28 +7,28 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/barra.css">
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary pt-0">
-        <div id="barra1" class="container-fluid">
-            <a class="navbar-brand text-light" href="../index.html">
-                <img src="../img/tesiub_nobg.png" alt="TESIUB" width="50" height="50">
-              </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+<body class="container-fluid">
+        <div class="row login-cont">
+            <div class="col-lg-7 col-xl-7 position-relative" style="background-color: #011b32;">
+                <img src="../img/tesiub_nobg.png" alt="TESIUB" width="500" height="500" class="img-fluid position-absolute top-50 start-50 translate-middle">
+            </div>
+            <div class="col-lg-5 col-xl-5 bg-light" style="font-family:oktah;">
+                <div id="regreso">
+                    <a class="nav-link" href="../index.html"><img src="../img/revert_icon.png" alt="Volver" height="30" width="30"><spanstyle="color:#808080;">Retroceder</span></a> 
+                </div>
+                <form>
+        		<label class="Field_Login" for="TXT_Correo">Correo Electrónico:</label><br>
+        		<input type="text" class="Field_Login" id="TXT_Correo" required><br><br>
+        		<label class="Field_Login"for="TXT_Nombres">Nombres:</label><br>
+        		<input type="text" class=class="Field_Login" id="TXT_Nombres" required><br><br>
+        		<label class=class="Field_Login" for="TXT_Apellidos">Apellidos:</label><br>
+        		<input type="text" class="Field_Login" id="TXT_Apellidos" required><br><br>
+        		<label class="Label_Login"for="Pass_Usuario">Contraseña:</label><br>
+        		<input type="password"  class="Field_Login" id="Pass_Usuario" required><br><br>
+        		<input type="button" class="btn btn-warning" value="Agregar Usuario" id="Button_AgregarUsuario"onclick='registro()'> 
+                </form>
+            </div>
         </div>
-      </nav>
-    <form>
-        <label class="Label_Usuario" for="TXT_Correo">Correo Electrónico:</label><br>
-        <input type="text" class="Field_Usuario" id="TXT_Correo" required><br><br>
-        <label class="Label_Usuario" for="TXT_Nombres">Nombres:</label><br>
-        <input type="text" class="Field_Usuario" id="TXT_Nombres" required><br><br>
-        <label class="Label_Usuario" for="TXT_Apellidos">Apellidos:</label><br>
-        <input type="text" class="Field_Usuario" id="TXT_Apellidos" required><br><br>
-        <label class="Label_Usuario" for="Pass_Usuario">Contraseña:</label><br>
-        <input type="password" class="Field_Usuario" id="Pass_Usuario" required><br><br>
-        <input type="button" value="Agregar Usuario" id="Button_AgregarUsuario" onclick='registro()'>
-    </form>
     <script src="../js/agregarusuario.js"></script>
     <script src="../js/bootstrap.min.js"></script>
 </body>
