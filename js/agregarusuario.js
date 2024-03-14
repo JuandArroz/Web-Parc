@@ -11,7 +11,7 @@ const agregarUsuario = () => {
                     apellidos: document.getElementById("TXT_Apellidos").value,
                     correo: document.getElementById("TXT_Correo").value,        
                     pass: password,
-                    tipouser: document.getElementById("Select_TipoUsuario").value
+                    tipouser: parseInt(document.getElementById("Select_TipoUsuario").value)
                 };
                 manejoDatos(nuevoUsuario);
                 } else {
