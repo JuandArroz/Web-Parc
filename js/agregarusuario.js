@@ -73,7 +73,7 @@ const manejoDatos = (nuevoUsuario) => {
 }
 
 const validarCorreo = (emailInput) => {
-  var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  var emailPattern = /^[^\s@]+@[^\s@]+\.(?:com|co|edu|net|org|gov|mil|biz|info|name|pro|aero|coop|int|jobs|museum|arpa|asia|cat|mobi|tel|travel|xxx)$/i;
   return emailPattern.test(emailInput);
 }
 
