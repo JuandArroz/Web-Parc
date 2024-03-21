@@ -22,7 +22,7 @@ const indesesion = () => {
                     <li class="nav-item">
                         <span class="nav-link text-light"><i class="fa-solid fa-user-secret fa-xl"></i> ${sesionusuario.nombres}</span>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item align-self-end">
                     <button class="btn btn-warning float-right" id="delog" onclick="limpiar_sesion()">Cerrar sesion</button>
                     </li>                                         
                 `
