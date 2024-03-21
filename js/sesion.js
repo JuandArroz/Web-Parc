@@ -20,7 +20,7 @@ const indesesion = () => {
                         <a class="nav-link text-warning" href="html/propuestas_revi.html">Propuestas</a>
                     </li>
                     <li class="nav-item">
-                        <span class="nav-link text-light"><i class="fa-solid fa-user-secret fa-2xl"></i> ${sesionusuario.nombres}</span>
+                        <span class="nav-link text-light"><i class="fa-solid fa-user-secret fa-xl"></i> ${sesionusuario.nombres}</span>
                     </li>
                     <li class="nav-item">
                         <button class="btn btn-warning" id="delog" onclick="limpiar_sesion()">Cerrar sesion</button>
@@ -34,7 +34,7 @@ const indesesion = () => {
                         <a class="nav-link text-warning" href="html/propuestas_revi.html">Propuestas</a>
                     </li>
                     <li class="nav-item">
-                        <span class="nav-link text-light"><i class="fa-solid fa-user-tie"></i> ${sesionusuario.nombres}</span>
+                        <span class="nav-link text-light"><i class="fa-solid fa-user-tie fa-xl"></i> ${sesionusuario.nombres}</span>
                     </li>
                     <li class="nav-item">
                     <button class="btn btn-warning" id="delog" onclick="limpiar_sesion()">Cerrar sesion</button>
@@ -45,7 +45,7 @@ const indesesion = () => {
             case 2:
                 opc4.innerHTML += `
                     <li class="nav-item">
-                        <span class="nav-link text-light"><i class="fa-solid fa-user-graduate"></i> ${sesionusuario.nombres}</span>
+                        <span class="nav-link text-light"><i class="fa-solid fa-user-graduate fa-xl"></i> ${sesionusuario.nombres}</span>
                     </li>                    
                     <li class="nav-item">
                         <button class="btn btn-warning" id="delog" onclick="limpiar_sesion()">Cerrar sesion</button>
