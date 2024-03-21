@@ -15,7 +15,7 @@ const dataTableOptions = {
         {orderable:false, targets:[5,7]}
     ],
     pageLength:10,
-    lengthMenu: [1, 2, 40, 60, 80, 100],
+    lengthMenu: [10, 20, 40, 60, 80, 100],
     destroy:true,
     language: {
         lengthMenu: "Mostrar _MENU_ registros por página",
