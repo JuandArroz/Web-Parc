@@ -27,3 +27,8 @@
 .zoomB:hover {
     transform: scale(1.1); 
 }
+
+.centered{
+    text-align: center !important;
+    vertical-align: middle !important;
+}
