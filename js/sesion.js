@@ -26,8 +26,7 @@ const indesesion = () => {
                     </li>
                     <li class="nav-item">
                         <button class="btn btn-warning" id="delog" onclick="limpiar_sesion()">Cerrar sesion</button>
-                    </li>
-                    </ul>                                    
+                    </li>                                    
                 `
                 break;
         
