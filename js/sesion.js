@@ -5,7 +5,9 @@ const indesesion = () => {
 
     let opc4 = document.querySelector('#opc4');
     opc4.innerHTML += '';
-
+    let opc5 = document.querySelector('#opc5');
+    opc5.innerHTML = '';
+    
     if(sesionusuario){
         switch(sesionusuario.tipouser){
             case 0:
@@ -19,6 +21,8 @@ const indesesion = () => {
                     <li class="nav-item">
                         <a class="nav-link text-warning" href="html/propuestas_revi.html">Propuestas</a>
                     </li>
+                `
+                opc5.innerHtml += `
                     <li class="nav-item">
                         <span class="nav-link text-light"><i class="fa-solid fa-user-secret fa-xl"></i> ${sesionusuario.nombres}</span>
                     </li>
