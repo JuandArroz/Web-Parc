@@ -19,7 +19,7 @@ const indesesion = () => {
                     <li class="nav-item">
                         <a class="nav-link text-warning" href="html/propuestas_revi.html">Propuestas</a>
                     </li>
-                    <li class="nav-item ml-auto">
+                    <li class="nav-item">
                         <span class="nav-link text-light"><i class="fa-solid fa-user-secret fa-xl"></i> ${sesionusuario.nombres}</span>
                     </li>
                     <li class="nav-item">
