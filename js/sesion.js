@@ -23,7 +23,7 @@ const indesesion = () => {
                         <span class="nav-link text-light"><i class="fa-solid fa-user-secret fa-xl"></i> ${sesionusuario.nombres}</span>
                     </li>
                     <li class="nav-item">
-                    <button class="btn btn-warningt" id="delog" onclick="limpiar_sesion()">Cerrar sesion</button>
+                    <button class="btn btn-warning" id="delog" onclick="limpiar_sesion()">Cerrar sesion</button>
                     </li>                                         
                 `
                 break;
