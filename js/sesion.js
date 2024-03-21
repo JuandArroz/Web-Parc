@@ -5,7 +5,7 @@ const indesesion = () => {
 
     let opc4 = document.querySelector('#opc4');
     opc4.innerHTML += '';
-    let opc5 = document.getElementById('#opc5');
+    let opc5 = document.getElementById('#opc5').value;
     opc5.innerHTML = '';
     
     if(sesionusuario){
