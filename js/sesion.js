@@ -12,15 +12,27 @@ const indesesion = () => {
         switch(sesionusuario.tipouser){
             case 0:
                 opc4.innerHTML += `
-                    <li class="nav-item">
-                        <a class="nav-link text-warning" href="html/tabladedatos.html">Tabla de datos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-warning" href="html/agregarusuario.html">Agregar usuario</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-warning" href="html/propuestas_revi.html">Propuestas</a>
-                    </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-warning" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Jhonny</a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <h6 class="dropdown-header">Opciones de administrador</h6>
+                        </li>
+                        <li>
+                            <a class="dropdown-item text-warning" href="html/tabladedatos.html">Tabla de datos</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item text-warning" href="html/agregarusuario.html">Agregar usuario</a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                            <h6 class="dropdown-header">Opciones de docente</h6>
+                        </li>
+                        <li>
+                            <a class="dropdown-item text-warning" href="html/propuestas_revi.html">Propuestas</a>
+                        </li>
+                    </ul>
+                </i>
                 `
                 opc5.innerHTML += `
                     <li class="nav-item">
@@ -114,3 +126,4 @@ const comprobar_sesionE = () => {
         alert("ACCESO DENEGADO.\nSOLO ESTUDIANTES")
     }
 }
+
