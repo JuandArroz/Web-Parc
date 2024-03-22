@@ -26,16 +26,46 @@
           </div>
         </div>
       </nav>
-    <form id="contactForm">
-        <label for="num_ase">Numero de asesores:</label><br>
-        <input type="number" id="num_ase" name="num_ase" required><br>
-        <label for="email">Correo electrónico de compañero:</label><br>
-        <input type="email" id="email" name="email" required><br>
-        <label for="mensaje">Descripción de la propuesta:</label><br>
-        <textarea id="mensaje" name="mensaje" rows="4" required></textarea><br>
-        <input type="submit" value="Enviar">
-    </form>
+
+      <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card" style="background-color: #011b32;">
+                    <div class="card-body" style="background-color: #f8f9fa;">
+                        <h2 class="card-title text-center mb-4">Propuestas</h2>
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <label for="nombreCompleto" class="form-label">Nombre completo:</label>
+                                <input type="text" class="form-control" id="nombreCompleto" name="nombreCompleto" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Correo electrónico:</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="programaEstudio" class="form-label">Programa de estudio:</label>
+                                <input type="text" class="form-control" id="programaEstudio" name="programaEstudio" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="tituloProyecto" class="form-label">Título del proyecto:</label>
+                                <input type="text" class="form-control" id="tituloProyecto" name="tituloProyecto" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="descripcionProyecto" class="form-label">Breve descripción del proyecto:</label>
+                                <textarea class="form-control" id="descripcionProyecto" name="descripcionProyecto" rows="4" required></textarea>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">Enviar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/sesion.js"></script>
+    <script src="../js/enviar_propuesta.js"></script>
 </body>
 </html>
