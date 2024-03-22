@@ -4,7 +4,7 @@ const sesionusuario = JSON.parse(sesionusuarioJSON);
 const indesesion = () => {
 
     let opc4 = document.querySelector('#opc4');
-    opc4.innerHTML += '';
+    opc4.innerHTML = '';
     let opc5 = document.querySelector('#opc5');
     opc5.innerHTML = '';
     
@@ -16,17 +16,18 @@ const indesesion = () => {
                     <a class="nav-link dropdown-toggle text-warning" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Jhonny</a>
                     <ul class="dropdown-menu">
                         <li>
-                            <h6 class="dropdown-header">Opciones de administrador</h6>
-                        </li>
-                        <li>
+                            <h6 class="dropdown-header">Opciones de administrador <i class="fa-solid fa-user-secret"></i></i></h6>
                             <a class="dropdown-item text-warning" href="html/tabladedatos.html">Tabla de datos</a>
                         </li>
                         <li>
                             <a class="dropdown-item text-warning" href="html/agregarusuario.html">Agregar usuario</a>
                         </li>
                         <li>
+                            <a class="dropdown-item text-warning" href="html/subirtesis.html">Subir tesis</a>
+                        </li>
+                        <li>
                             <hr class="dropdown-divider">
-                            <h6 class="dropdown-header">Opciones de docente</h6>
+                            <h6 class="dropdown-header">Opciones de docente <i class="fa-solid fa-user-tie"></i></h6>
                         </li>
                         <li>
                             <a class="dropdown-item text-warning" href="html/propuestas_revi.html">Propuestas</a>
@@ -61,6 +62,11 @@ const indesesion = () => {
                 break;
         
             case 2:
+                opc4.innerHTML += `
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="html/enviar_propuesta.html">Enviar propuesta</a>
+                    </li>
+                `
                 opc5.innerHTML += `
                     <li class="nav-item">
                         <span class="nav-link text-light"><i class="fa-solid fa-user-graduate fa-xl"></i> ${sesionusuario.nombres}</span>
@@ -72,12 +78,15 @@ const indesesion = () => {
                 break;
         }
     }else{
+        opc4.innerHTML += `
+            <span class="navbar-text text-secondary">Registrate para acceder a nuevas funciones</span>
+        `
         opc5.innerHTML += `
             <li class="nav-item">
-                <a class="nav-link text-light" href="html/login.html">Login</a>
+                <a class="nav-link text-light" href="html/login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-light" href="html/register.html">Registrarse</a>
+                <a class="nav-link text-light" href="html/register.html"><i class="fa-solid fa-address-card"></i> Registrarse</a>
             </li>
         `
     }
@@ -126,4 +135,3 @@ const comprobar_sesionE = () => {
         alert("ACCESO DENEGADO.\nSOLO ESTUDIANTES")
     }
 }
-
