@@ -1,0 +1,19 @@
+{
+    "administrador": [
+      { "id_admin": 1, "nombre": "Juan David", "apellido": "Ucros Cervantes", "correo": "admin1@example.com", "contra": "contraseña1" },
+      { "id_admin": 2, "nombre": "Jorge Mario", "apellido": "Manotas Arroyo", "correo": "admin2@example.com", "contra": "contraseña2" }
+    ],
+    "docente": [
+      { "id_docente": 1, "especialidad": "Sistemas Distribuidos", "correo": "BryanFernandez@example.com", "apellido": "Fernandez", "nombre": "Bryan" },
+      { "id_docente": 2, "especialidad": "Gestion de Redes", "correo": "YamithEscobar@example.com", "apellido": "Escobar", "nombre": "Yamith" }
+    ],
+    "estudiante": [
+      { "id_estudiante": 11, "correo": "Juancho@example.com", "numero_celular": "123456789", "nombre": "Juan", "apellido": "Pérez" },
+      { "id_estudiante": 12, "correo": "Mari@example.com", "numero_celular": "987654321", "nombre": "María", "apellido": "González" }
+    ],
+    "propuestatesis": [
+      { "id_propuesta": 3, "estado": "En revisión", "comentario_docente": null, "titulo": "Gestion Digital de Monitorias Academicas en la IUB", "fecha_presentacion": "2024-03-18", "fecha_aprobacion": null, "id_estudiante": 11, "id_docente": 1, "archivo_pdf_propuesta": "path/to/pdf" },
+      { "id_propuesta": 4, "estado": "Aprobada", "comentario_docente": null, "titulo": "Desarrollo de motopanes a nivel industrial", "fecha_presentacion": "2024-03-18", "fecha_aprobacion": null, "id_estudiante": 12, "id_docente": 2, "archivo_pdf_propuesta": "path/to/pdf" }
+    ]
+  }
+  
