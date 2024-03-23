@@ -20,6 +20,9 @@ const indesesion = () => {
                             <a class="dropdown-item text-warning" href="html/tabladedatos.html">Tabla de datos</a>
                         </li>
                         <li>
+                            <a class="dropdown-item text-warning" href="html/dashboard.html">Dashboard</a>
+                        </li>
+                        <li>
                             <a class="dropdown-item text-warning" href="html/agregarusuario.html">Agregar usuario</a>
                         </li>
                         <li>
