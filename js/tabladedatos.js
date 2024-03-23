@@ -46,28 +46,28 @@ const initDataTable=async()=>{
 
 const listUsers=async()=>{
     try {
-        const response = await fetch("https://storage.googleapis.com/datos_tablas/datos.json");
-        const users= await response.json();
+            const response = await fetch("http://127.0.0.1:3000/getAllEstudiante");
+            const users= await response.json();
 
-        let content = ``;
-        users.forEach((user, index) => {
-            content +=`
-                <tr>
-                    <th>${index + 1}</th>
-                    <td>${user.id}</td>
-                    <td>${user.nombres}</td>
-                    <td>${user.apellidos}</td>
-                    <td>${user.correo}</td>
-                    <td>${user.pass}</td>
-                    <td>${user.tipouser}</td>
-                    <td>
-                        <button class="btn btn-sm btn-primary"><i class="fa-solid fa-pencil fa-xl"></i></button>
-                        <button class="btn btn-sm btn-danger"><i class="fa-solid fa-trash-can fa-xl"></i></button>
-                    </td>
-                </tr>
-            `
-        });
-        tableBody_users.innerHTML = content;
+            let content = ``;
+            users.forEach((user, index) => {
+                content +=`
+                    <tr>
+                        <th>${index + 1}</th>
+                        <td>${user.id_estudiante}</td>
+                        <td>${user.nombre}</td>
+                        <td>${user.apellido}</td>
+                        <td>${user.correo}</td>
+                        <td>${user.numero_celular}</td>
+                        <td>Estudiante</td>
+                        <td>
+                            <button class="btn btn-sm btn-primary"><i class="fa-solid fa-pencil fa-xl"></i></button>
+                            <button class="btn btn-sm btn-danger"><i class="fa-solid fa-trash-can fa-xl"></i></button>
+                        </td>
+                    </tr>
+                `
+            });
+            tableBody_users.innerHTML = content;
     } catch (ex) {
         alert(ex)
     }
