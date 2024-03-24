@@ -4,7 +4,6 @@ let currentPage = 1;
 
 const dataTable = async() =>{
     await obten_data();
-    console.log(tesisData)
     
     const pages = [];
     for (let i = 0; i <= Math.ceil(tesisData.length / itemsPerPage); i++) {
