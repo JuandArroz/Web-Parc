@@ -1,19 +1,22 @@
 var tesisData = [];
+let itemsPerPage = 2;
+let currentPage = 1;
 
 const dataTable = async() =>{
     await obten_data();
     console.log(tesisData)
     
-}
+    const pages = [];
+    for (let i = 0; i <= Math.ceil(tesisData.length / itemsPerPage); i++) {
+        pages.push(i)
+    }
 
-const obten_data = async() =>{
-    try {
-        const response = await fetch("http://127.0.0.1:3000/getAllTesis");
-        const data = await response.json();
-        
-        tesisData = data;
-        let contenido = ``;
-        tesisData.forEach((tesis, index) => {
+    const indexLastPage = currentPage * itemsPerPage;
+    const indexFirstPage = indexLastPage - itemsPerPage;
+    const currentItems = tesisData.slice(indexFirstPage, indexLastPage);
+
+    let contenido = ``;
+        currentItems.forEach((tesis, index) => {
             contenido += `
                 <div class="row mb-5">
                     <table class="table">
@@ -30,11 +33,37 @@ const obten_data = async() =>{
             `
         });
         tesis_container.innerHTML = contenido;
+}
 
+const obten_data = async() =>{
+    try {
+        const response = await fetch("http://127.0.0.1:3000/getAllTesis");
+        const data = await response.json();
+        
+        tesisData = data;
     } catch (ex) {
         alert(ex)
     }
 }
+
+const prev_btn = () =>{
+    if((currentPage - 1) * itemsPerPage){
+        currentPage--;
+        dataTable();
+    }
+}
+
+const next_btn = () =>{
+    const lastIndex = currentPage * itemsPerPage;
+
+    if(lastIndex < tesisData.length){
+        currentPage++;
+        dataTable();
+    }
+}
+
+boton_previo.addEventListener("click", prev_btn, false)
+boton_siguiente.addEventListener("click", next_btn, false)
 
 window.addEventListener("load",async()=>{
     await dataTable();
