@@ -1,5 +1,5 @@
 var tesisData = [];
-let itemsPerPage = 2;
+let itemsPerPage = 10;
 let currentPage = 1;
 
 const dataTable = async() =>{
@@ -13,6 +13,29 @@ const dataTable = async() =>{
     const indexLastPage = currentPage * itemsPerPage;
     const indexFirstPage = indexLastPage - itemsPerPage;
     const currentItems = tesisData.slice(indexFirstPage, indexLastPage);
+
+    if(currentPage == 1){
+        botones_paginacion.innerHTML = `               
+            <button class="btn disabled border-0"><i class="fa-solid fa-ban"></i></button>
+            <button class="btn btn-primary disabled">${currentPage}</button>
+            <button class="btn disabled border-0">${currentPage +1}</button>
+            
+        `;
+    }else{
+        if(currentPage == Math.ceil(tesisData.length / itemsPerPage)){
+            botones_paginacion.innerHTML = `
+                <button class="btn disabled border-0">${currentPage - 1}</button>
+                <button class="btn btn-primary disabled">${currentPage}</button>
+                <button class="btn disabled border-0"><i class="fa-solid fa-ban"></i></button>
+            `;
+        }else{
+            botones_paginacion.innerHTML = `
+                <button class="btn disabled border-0">${currentPage - 1}</button>
+                <button class="btn btn-primary disabled">${currentPage}</button>
+                <button class="btn disabled border-0">${currentPage +1}</button>
+            `;
+        }
+    }
 
     let contenido = ``;
         currentItems.forEach((tesis, index) => {
