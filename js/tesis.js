@@ -1,5 +1,5 @@
 var tesisData = [];
-let itemsPerPage = 10;
+let itemsPerPage = 1;
 let currentPage = 1;
 
 const dataTable = async() =>{
