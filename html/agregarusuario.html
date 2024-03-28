@@ -27,24 +27,40 @@
         </div>
       </nav>
 
-    <form>
-                <label class="Label_Usuario" for="TXT_Correo">Correo Electrónico:</label><br>
-                <input type="text" class="Field_Usuario" id="TXT_Correo" required><br><br>
-                <label class="Label_Usuario" for="TXT_Nombres">Nombres:</label><br>
-                <input type="text" class="Field_Usuario" id="TXT_Nombres" required><br><br>
-                <label class="Label_Usuario" for="TXT_Apellidos">Apellidos:</label><br>
-                <input type="text" class="Field_Usuario" id="TXT_Apellidos" required><br><br>
-                <label class="Label_Usuario" for="Pass_Usuario">Contraseña:</label><br>
-                <input type="password" class="Field_Usuario" id="Pass_Usuario" required><br><br>
-                <label class="Label_Usuario" for="Select_TipoUsuario">Tipo de Usuario:</label><br>
-                <select id="Select_TipoUsuario">
-                    <option value=0>Administrador</option>
-                    <option value=1>Docente</option>
-                    <option value=2>Estudiante</option>
-                </select><br><br>
-                <input type="button" value="Agregar Usuario" id="Button_AgregarUsuario" onclick='agregarUsuario()'>
-            </form>
-    
+      <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form>
+                    <div class="mb-3">
+                        <label for="TXT_Correo" class="form-label">Correo:</label>
+                        <input type="text" class="form-control form-control-sm" id="TXT_Correo" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="TXT_Nombres" class="form-label">Nombres:</label>
+                        <input type="text" class="form-control form-control-sm" id="TXT_Nombres" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="TXT_Apellidos" class="form-label">Apellidos:</label>
+                        <input type="text" class="form-control form-control-sm" id="TXT_Apellidos" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="Pass_Usuario" class="form-label">Contraseña:</label>
+                        <input type="password" class="form-control form-control-sm" id="Pass_Usuario" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="Select_TipoUsuario" class="form-label">Tipo:</label>
+                        <select id="Select_TipoUsuario" class="form-select form-control-sm">
+                            <option value="0">Admin</option>
+                            <option value="1">Docente</option>
+                            <option value="2">Estudiante</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="agregarUsuario()">Agregar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <script src="../js/sesion.js"></script>
     <script src="../js/agregarusuario.js"></script>
     <script src="../js/bootstrap.min.js"></script>
