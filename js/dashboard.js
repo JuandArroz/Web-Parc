@@ -1,4 +1,4 @@
-const listUsers = async () => {
+document.addEventListener('DOMContentLoaded', async function() {
     try {
         const response = await fetch("http://127.0.0.1:3000/getAllEstudiante");
         const users = await response.json();
@@ -64,4 +64,4 @@ const listUsers = async () => {
     } catch (ex) {
         alert(ex)
     }
-}
+});
