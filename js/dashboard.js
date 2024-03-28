@@ -57,14 +57,9 @@ const listUsers = async () => {
             }
         });
 
-        userChartBar.data = userDataBar;
-        userChartBar.update();
-
-        userChartLine.data = userDataLine;
-        userChartLine.update();
-
-        docentesChart.data = docentesData;
-        docentesChart.update();
+        const userChartBar = new Chart(document.getElementById('userChartBar').getContext('2d'), { type: 'bar', data: userDataBar });
+        const userChartLine = new Chart(document.getElementById('userChartLine').getContext('2d'), { type: 'line', data: userDataLine });
+        const docentesChart = new Chart(document.getElementById('docentesChart').getContext('2d'), { type: 'pie', data: docentesData });
 
     } catch (ex) {
         alert(ex)
