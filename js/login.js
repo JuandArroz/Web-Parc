@@ -1,46 +1,43 @@
-console.log('Vinculado')
-const veriflog = () => {
-    console.log("Dentro de la función")
+var userData = [];
+
+const obten_data = async(correoTXT, url) => {
+    try {
+        const response = await fetch(url+correoTXT);
+        const data = await response.json();
+        userData = data;
+    } catch (error) {
+        alert(error);
+    }
+}
+
+const validacion_logeo = async() => {
 
     let correo = document.getElementById("TXT_Correo").value
     let password = document.getElementById("Pass_Login").value
+    let estado = [0, 0];
+    let url_varia = ["http://127.0.0.1:3000/getAdministradorByCorreo/", "http://127.0.0.1:3000/getDocenteByCorreo/", "http://127.0.0.1:3000/getEstudianteByCorreo/"];
 
-   fetch('https://storage.googleapis.com/datos_tablas/datos.json')
-        .then(response => response.json())
-        .then(data => {
-            if (Array.isArray(data)) {
-                const usuarioEncontrado = data.find(usuario => usuario.correo === correo && usuario.pass === password);
-                if (usuarioEncontrado) {
-                    console.log('Comprobación correcta');
-                    alert("Bienvenido, " + usuarioEncontrado.nombres);                    
-                    const userses = JSON.stringify(usuarioEncontrado);
-                    localStorage.setItem('sesionusuario', userses);   
-                    window.location = "../index.html";
-
-                } else {                    
-                    if(validado()){
-                        const nuevos = JSON.parse(localStorage.getItem('usuarios'));
-                        for(let iter of nuevos){
-                            if(iter.correo == correo && iter.pass == password){
-                                console.log(iter)
-                                console.log('Comprobación correcta');
-                                alert("Bienvenido, " + iter.nombres);                    
-                                const userses = JSON.stringify(iter);
-                                localStorage.setItem('sesionusuario', userses);   
-                                window.location = "../index.html";
-                            }
-                        }                        
-                    }else{
-                        alert("Credenciales incorrectas")
-                    }                  
-                }
-            } else {
-                console.error('Los datos no son un array:', data);
+    for (let i = 0; i < url_varia.length; i++) {
+        await obten_data(correo, url_varia[i]);
+            if(userData.length > 0 && correo == userData[0].correo){
+                estado = [1,i];
+                userData[0].tipouser = estado[1];
+                break;
             }
-        })
-    .catch(error => {
-        console.error('Error de archivo JSON:', error);
-    });
+    }
+    
+    if(estado[0] == 1){
+        if(password == userData[0].contrasena){
+            alert("Bienvenido, "+userData[0].nombre);
+            localStorage.setItem('sesionusuario', JSON.stringify(userData));
+            window.location = "../index.html";
+        }else{
+            alert("Contraseña incorrecta");
+        }
+    }else{
+        alert("El correo ingresado no existe");
+    }
+
 }
 
 let validado = () => {

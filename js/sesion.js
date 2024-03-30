@@ -9,7 +9,7 @@ const indesesion = () => {
     opc5.innerHTML = '';
     
     if(sesionusuario){
-        switch(sesionusuario.tipouser){
+        switch(sesionusuario[0].tipouser){
             case 0:
                 opc4.innerHTML += `
                 <li class="nav-item dropdown">
@@ -40,7 +40,7 @@ const indesesion = () => {
                 `
                 opc5.innerHTML += `
                     <li class="nav-item">
-                        <span class="nav-link text-light"><i class="fa-solid fa-user-secret fa-xl"></i> ${sesionusuario.nombres}</span>
+                        <span class="nav-link text-light"><i class="fa-solid fa-user-secret fa-xl"></i> ${sesionusuario[0].nombre}</span>
                     </li>
                     <li class="nav-item">
                         <button class="btn btn-warning" id="delog" onclick="limpiar_sesion()">Cerrar sesion</button>
@@ -56,7 +56,7 @@ const indesesion = () => {
                 `
                 opc5.innerHTML += `
                     <li class="nav-item">
-                        <span class="nav-link text-light"><i class="fa-solid fa-user-tie fa-xl"></i> ${sesionusuario.nombres}</span>
+                        <span class="nav-link text-light"><i class="fa-solid fa-user-tie fa-xl"></i> ${sesionusuario[0].nombre}</span>
                     </li>
                     <li class="nav-item">
                         <button class="btn btn-warning" id="delog" onclick="limpiar_sesion()">Cerrar sesion</button>
@@ -72,7 +72,7 @@ const indesesion = () => {
                 `
                 opc5.innerHTML += `
                     <li class="nav-item">
-                        <span class="nav-link text-light"><i class="fa-solid fa-user-graduate fa-xl"></i> ${sesionusuario.nombres}</span>
+                        <span class="nav-link text-light"><i class="fa-solid fa-user-graduate fa-xl"></i> ${sesionusuario[0].nombre}</span>
                     </li>                    
                     <li class="nav-item">
                         <button class="btn btn-warning" id="delog" onclick="limpiar_sesion()">Cerrar sesion</button>
@@ -102,7 +102,7 @@ const limpiar_sesion = () =>{
 
 const comprobar_sesionA = () => {
     if(sesionusuario){
-        if(sesionusuario.tipouser == 0){
+        if(sesionusuario[0].tipouser == 0){
         }else{
             window.location = "../index.html";
             alert("ACCESO DENEGADO.\nUSTED NO CUENTA CON PERMISOS DE ADMINISTRADOR")
@@ -115,7 +115,7 @@ const comprobar_sesionA = () => {
 
 const comprobar_sesionD = () => {
     if(sesionusuario){
-        if(sesionusuario.tipouser == 0 || sesionusuario.tipouser == 1){
+        if(sesionusuario[0].tipouser == 0 || sesionusuario[0].tipouser == 1){
         }else{
             window.location = "../index.html";
             alert("ACCESO DENEGADO.\nUSTED NO CUENTA CON PERMISOS DE ADMINISTRADOR")
@@ -128,7 +128,7 @@ const comprobar_sesionD = () => {
 
 const comprobar_sesionE = () => {
     if(sesionusuario){
-        if(sesionusuario.tipouser == 0 || sesionusuario.tipouser == 2){
+        if(sesionusuario[0].tipouser == 0 || sesionusuario[0].tipouser == 2){
         }else{
             window.location = "../index.html";
             alert("ACCESO DENEGADO.\n")
