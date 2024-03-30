@@ -1,5 +1,5 @@
 var tesisData = [];
-let itemsPerPage = 1;
+let itemsPerPage = 10;
 let currentPage = 1;
 
 const dataTable = async() =>{
@@ -64,6 +64,3 @@ const next_btn = () =>{
 boton_previo.addEventListener("click", prev_btn, false)
 boton_siguiente.addEventListener("click", next_btn, false)
 
-window.addEventListener("load",async()=>{
-    await dataTable();
-})
