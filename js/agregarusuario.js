@@ -1,75 +1,60 @@
+
+
 const agregarUsuario = () => {
-    var password = document.getElementById("Pass_Usuario").value;
-    
-    if(validarNombre(document.getElementById("TXT_Nombres").value)){
-        if(validarNombre(document.getElementById("TXT_Apellidos").value)){
-            if(validarCorreo(document.getElementById("TXT_Correo").value)){
-                if(password && validarPassword(password)){
-                var nuevoUsuario = {
-                    id: getRandomInt(1000), 
-                    nombres: document.getElementById("TXT_Nombres").value,
-                    apellidos: document.getElementById("TXT_Apellidos").value,
-                    correo: document.getElementById("TXT_Correo").value,        
-                    pass: password,
-                    tipouser: parseInt(document.getElementById("Select_TipoUsuario").value)
-                };
-                manejoDatos(nuevoUsuario);
-                } else {
-                    alert("La contraseña no es segura. Debe contener:\n*Minimo 1 letra mayuscula\n*Minimo 1 letra minuscula\n*Minimo 1 numero\n*Minimo 1 caracter especial\n*Minimo 8 caracteres, maximo 15");
+}
+
+const registro = async() => {
+
+    var correo = TXT_Correo.value;
+    var nombres = TXT_Nombres.value;
+    var apellidos = TXT_Apellidos.value;
+    var telefono = NMB_Celuco.value;
+    var password = Pass_Usuario.value;
+
+    if (!correo || !nombres || !apellidos || !telefono || !password) {
+        alert("Por favor, complete todos los campos.");
+    }else{
+        if(validarCorreo(correo)){
+            if(await validacion_correoDB(correo)){
+                console.log(validacion_correoDB(correo));
+                if(validarNombre(nombres)){
+                    if(validarNombre(apellidos)){
+                        if(validarTelefono(telefono)){
+                            if(password && validarPassword(password)){
+
+                                axios ({
+                                    method: 'POST',
+                                    url: 'http://127.0.0.1:3000/add_estudiante',
+                                    data: {correo:correo,
+                                           numero_celular:telefono,
+                                           nombre:nombres,
+                                           apellido:apellidos,
+                                           contrasena:password                         
+                                        },
+                                  }).then(function (response) {
+                                    alert("Registro exitoso, bienvenido "+nombres)
+                                    window.location.href = '../index.html';
+                                  }).catch(err => console.log('Error: ', err))
+
+                            }else{
+                                alert("La contraseña no es segura. Debe contener:\n*Minimo 1 letra mayuscula\n*Minimo 1 letra minuscula\n*Minimo 1 numero\n*Minimo 1 caracter especial\n*Minimo 8 caracteres, maximo 15");
+                            }
+                        }else{
+                            alert("Telefono invalido");
+                        }
+                    }else{
+                        alert("Apellido/s invalido/s.");
+                    }
+                }else{
+                    alert("Nombre/s invalido/s.");
                 }
             }else{
-                alert("Correo no valido. ")
-            }  
+                alert("El correo ya fue registrado");
+            }
         }else{
-            alert("Apellido invalido");
+            alert("Correo invalido.");
         }
-    }else{
-        alert("Nombre invalido");
     }
-}
-
-const registro = () => {
-    var password = document.getElementById("Pass_Usuario").value;
-    
-    if(validarNombre(document.getElementById("TXT_Nombres").value)){
-        if(validarNombre(document.getElementById("TXT_Apellidos").value)){
-            if(validarCorreo(document.getElementById("TXT_Correo").value)){
-                if(password && validarPassword(password)){
-                var nuevoUsuario = {
-                    id: getRandomInt(1000), 
-                    nombres: document.getElementById("TXT_Nombres").value,
-                    apellidos: document.getElementById("TXT_Apellidos").value,
-                    correo: document.getElementById("TXT_Correo").value,        
-                    pass: password,
-                    tipouser: 2
-                };
-                manejoDatos(nuevoUsuario);
-                } else {
-                    alert("La contraseña no es segura. Debe contener:\n*Minimo 1 letra mayuscula\n*Minimo 1 letra minuscula\n*Minimo 1 numero\n*Minimo 1 caracter especial\n*Minimo 8 caracteres, maximo 15");
-                }
-            }else{
-                alert("Correo no valido. ")
-            }  
-        }else{
-            alert("Apellido invalido");
-        }
-    }else{
-        alert("Nombre invalido");
-    }    
-}
-
-const manejoDatos = (nuevoUsuario) => {
-        let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-        
-        usuarios.push(nuevoUsuario);
-        
-        localStorage.setItem('usuarios', JSON.stringify(usuarios));
-        alert("Registro exitoso")
-        
-        document.getElementById("TXT_Nombres").value = '';
-        document.getElementById("TXT_Apellidos").value = '';
-        document.getElementById("TXT_Correo").value = '';       
-        document.getElementById("Pass_Usuario").value = '';
 }
 
 const validarCorreo = (emailInput) => {
@@ -82,11 +67,39 @@ const validarNombre = (nombreInput) => {
   return nombrePattern.test(nombreInput);
 }
 
+const validarTelefono = (telefonoInput) => {
+    var telefonoPattern = /^\d{1,11}$/;
+    return telefonoPattern.test(telefonoInput);
+}
+
 const validarPassword = (password) => {
     const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
     return regex.test(password);
 }
 
-const getRandomInt = (max) => {
-    return Math.floor(Math.random() * max);
-  }
+var userData = [];
+
+const obten_data = async(correoTXT, url) => {
+    try {
+        const response = await fetch(url+correoTXT);
+        const data = await response.json();
+        userData = data;
+    } catch (error) {
+        alert(error);
+    }
+}
+
+const validacion_correoDB = async(correo) => {
+
+    let estado = true;
+    let url_varia = ["http://127.0.0.1:3000/getAdministradorByCorreo/", "http://127.0.0.1:3000/getDocenteByCorreo/", "http://127.0.0.1:3000/getEstudianteByCorreo/"];
+
+    for (let i = 0; i < url_varia.length; i++) {
+        await obten_data(correo, url_varia[i]);
+            if(userData.length > 0 && correo == userData[0].correo){
+                estado = false;
+                break;
+            }
+    }
+    return estado;
+}
