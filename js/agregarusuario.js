@@ -1,6 +1,135 @@
+const obtener_tipo = () => {
+    if(Select_TipoUsuario.value != null){
+        var tipo_form = Select_TipoUsuario.value;
+    }else{
+        var tipo_form = 0;
+    }
+    return tipo_form;
+}
 
+const form_registroadmin = () => {
+    tipo_form = obtener_tipo();
 
-const agregarUsuario = () => {
+    let contenido = document.querySelector('#form_extra');
+    contenido.innerHTML = '';
+    
+    switch (tipo_form) {
+        case "0":
+            break;
+
+        case "1":
+            contenido.innerHTML += `
+                <label for="TXT_Especialidad" class="form-label">Especialidad:</label>
+                <input type="text" class="form-control form-control-sm" id="TXT_Especialidad" required>
+            `;
+            break;
+
+        case "2":
+            contenido.innerHTML += `
+                <label for="NMB_Celuco" class="form-label">Telefono:</label>
+                <input type="text" class="form-control form-control-sm" id="NMB_Celuco" required>
+            `;
+            break;
+    
+        default:
+            alert("ERROR: TIPO DE USUARIO NO VALIDO");
+            break;
+    }
+}
+
+const agregarUsuario = async() => {
+
+    tipo_form = obtener_tipo();
+    var correo = TXT_Correo.value;
+    var nombres = TXT_Nombres.value;
+    var apellidos = TXT_Apellidos.value;
+    var password = Pass_Usuario.value;
+    
+    var estado = true;
+    url = '';
+    var valores = {correo: correo,
+        nombre: nombres,
+        apellido: apellidos,
+        contrasena: password
+    };
+
+    if (!correo || !nombres || !apellidos || !password) {
+        alert("Por favor, complete todos los campos.");
+    }else{
+        if(validarCorreo(correo)){
+            if(await validacion_correoDB(correo)){
+                if(validarNombre(nombres)){
+                    if(validarNombre(apellidos)){
+                            if(password && validarPassword(password)){                                
+                            }else{
+                                alert("La contraseña no es segura. Debe contener:\n*Minimo 1 letra mayuscula\n*Minimo 1 letra minuscula\n*Minimo 1 numero\n*Minimo 1 caracter especial\n*Minimo 8 caracteres, maximo 15");
+                                estado = false;
+                            }
+                    }else{
+                        alert("Apellido/s invalido/s.");
+                        estado = false;
+                    }
+                }else{
+                    alert("Nombre/s invalido/s.");
+                    estado = false;
+                }
+            }else{
+                alert("El correo ya fue registrado");
+                estado = false;
+            }
+        }else{
+            alert("Correo invalido.");
+            estado = false;
+        }
+    }
+
+    switch (tipo_form) {
+        case "0":
+            if(estado){
+                url = 'http://127.0.0.1:3000/add_administrador';
+            }
+            break;
+
+        case "1":
+            var especialidad = TXT_Especialidad.value;
+            if(!especialidad || !validarNombre(especialidad)){
+                estado = false;
+                alert("Especialidad invalida o nula");
+            }else{
+                valores.especialidad = especialidad;
+                url = 'http://127.0.0.1:3000/add_docente';
+            }
+            break;
+
+        case "2":
+            var telefono = NMB_Celuco.value;
+            if(!telefono || !validarTelefono(telefono)){
+                estado = false;
+                alert("Telefono invalido o nulo");
+            }else{
+                valores.numero_celular = telefono;
+                url = 'http://127.0.0.1:3000/add_estudiante';
+            }
+            break;
+
+        default:
+            alert("ERROR. TIPO DE USUARIO INVALIDO");
+            estado = false;
+            break;
+    }
+
+    if(estado){
+        axios.post(url, valores)
+        .then(function (response) {
+            alert("Registro exitoso");
+            location.reload();
+        })
+        .catch(err => {
+            console.error('Error: ', err);
+            alert("Ocurrió un error al intentar agregar el usuario.");
+        });
+    }
+
 }
 
 const registro = async() => {
@@ -16,7 +145,6 @@ const registro = async() => {
     }else{
         if(validarCorreo(correo)){
             if(await validacion_correoDB(correo)){
-                console.log(validacion_correoDB(correo));
                 if(validarNombre(nombres)){
                     if(validarNombre(apellidos)){
                         if(validarTelefono(telefono)){
