@@ -61,8 +61,8 @@ const listUsers=async()=>{
                         <td>${user.numero_celular}</td>
                         <td>Estudiante</td>
                         <td>
-                            <button class="btn btn-sm btn-primary"><i class="fa-solid fa-pencil fa-xl"></i></button>
-                            <button class="btn btn-sm btn-danger"><i class="fa-solid fa-trash-can fa-xl"></i></button>
+                            <button id="BTN1_${user.id_estudiante}" class="btn btn-sm btn-primary"><i class="fa-solid fa-pencil fa-xl"></i></button>
+                            <button id="BTN2_${user.id_estudiante}" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash-can fa-xl"></i></button>
                         </td>
                     </tr>
                 `

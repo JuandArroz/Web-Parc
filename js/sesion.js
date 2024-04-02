@@ -17,7 +17,7 @@ const indesesion = () => {
                     <ul class="dropdown-menu">
                         <li>
                             <h6 class="dropdown-header">Opciones de administrador <i class="fa-solid fa-user-secret"></i></i></h6>
-                            <a class="dropdown-item text-warning" href="html/tabladedatos.html">Tabla de datos</a>
+                            <a class="dropdown-item text-warning" href="html/tabladedatos.html">Tablas de datos</a>
                         </li>
                         <li>
                             <a class="dropdown-item text-warning" href="html/dashboard.html">Dashboard</a>
