@@ -2,8 +2,8 @@ var tesisData = [];
 let itemsPerPage = 1;
 let currentPage = 1;
 
-const dataTable = async(urlf) =>{
-    await obten_data(urlf);
+const dataTable = async() =>{
+    await obten_data('http://127.0.0.1:3000/getAllTesis');
     
     const pages = [];
     for (let i = 0; i <= Math.ceil(tesisData.length / itemsPerPage); i++) {
