@@ -1,18 +1,12 @@
-let validado = () => {
-    if(localStorage.getItem("usuarios") != null){
-        return true;
-    }else{
-        return false;
-    }
-}
-
 let dataTable;
 let dataTableIsInitialized = false;
 
+//CONFIGURACIÓN DE LA DATATABLE
+
 const dataTableOptions = {
     columnDefs:[
-        {className:"centered", targets:[0,1,2,3,4,5,6,7]},
-        {orderable:false, targets:[5,7]}
+        {className:"centered", targets:[0,1,2,3,4,5,6]},
+        {orderable:false, targets:[5,6]}
     ],
     pageLength:10,
     lengthMenu: [10, 20, 40, 60, 80, 100],
@@ -34,6 +28,8 @@ const dataTableOptions = {
     }
 };
 
+//INICIALIZACIÓN DE DATATABLE
+
 const initDataTable=async()=>{
     if(dataTableIsInitialized){
         dataTable.destroy();
@@ -43,6 +39,8 @@ const initDataTable=async()=>{
     dataTable = $("#datatable_users").DataTable(dataTableOptions);
     dataTableIsInitialized = true;
 }
+
+//OBTENCIÓN E IMPRENSIÓN DE DATOS
 
 const listUsers=async()=>{
     try {
@@ -59,10 +57,9 @@ const listUsers=async()=>{
                         <td>${user.apellido}</td>
                         <td>${user.correo}</td>
                         <td>${user.numero_celular}</td>
-                        <td>Estudiante</td>
                         <td>
                             <button id="BTN1_${user.id_estudiante}" class="btn btn-sm btn-primary"><i class="fa-solid fa-pencil fa-xl"></i></button>
-                            <button id="BTN2_${user.id_estudiante}" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash-can fa-xl"></i></button>
+                            <button id="${user.id_estudiante}" class="btn btn-sm btn-danger" onclick="eliminar_usuario(this.id)"><i class="fa-solid fa-trash-can fa-xl"></i></button>
                         </td>
                     </tr>
                 `
@@ -71,6 +68,17 @@ const listUsers=async()=>{
     } catch (ex) {
         alert(ex)
     }
+}
+
+const eliminar_usuario = async(id_boton) => {
+    console.log(id_boton);
+    axios.delete(`http://127.0.0.1:3000/delete_Estudiante/${id_boton}`)
+  .then(response => {
+    initDataTable();
+  })
+  .catch(error => {
+    console.error(error);
+  });
 }
 
 window.addEventListener("load",async()=>{
