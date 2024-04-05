@@ -58,7 +58,7 @@ const listUsers=async()=>{
                         <td>${user.correo}</td>
                         <td>${user.numero_celular}</td>
                         <td>
-                            <button id="BTN1_${user.id_estudiante}" class="btn btn-sm btn-primary"><i class="fa-solid fa-pencil fa-xl"></i></button>
+                            <button id="${user.id_estudiante}" class="btn btn-sm btn-primary"><i class="fa-solid fa-pencil fa-xl"></i></button>
                             <button id="${user.id_estudiante}" class="btn btn-sm btn-danger" onclick="eliminar_usuario(this.id)"><i class="fa-solid fa-trash-can fa-xl"></i></button>
                         </td>
                     </tr>
@@ -73,12 +73,12 @@ const listUsers=async()=>{
 const eliminar_usuario = async(id_boton) => {
     console.log(id_boton);
     axios.delete(`http://127.0.0.1:3000/delete_Estudiante/${id_boton}`)
-  .then(response => {
-    initDataTable();
-  })
-  .catch(error => {
-    console.error(error);
-  });
+        .then(response => {
+            initDataTable();
+        })
+        .catch(error => {
+            console.error(error);
+        });
 }
 
 window.addEventListener("load",async()=>{
