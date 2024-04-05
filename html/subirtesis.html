@@ -18,11 +18,33 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-warning" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Jhonny</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <h6 class="dropdown-header">Opciones de administrador <i class="fa-solid fa-user-secret"></i></i></h6>
+                                <a class="dropdown-item text-warning" href="tabladedatos.html">Tablas de datos</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-warning" href="dashboard.html">Dashboard</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-warning" href="agregarusuario.html">Agregar usuario</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                                <h6 class="dropdown-header">Opciones de docente <i class="fa-solid fa-user-tie"></i></h6>
+                                <a class="dropdown-item text-warning" href="propuestas_revi.html">Propuestas</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <button class="btn btn-warning" id="delog" onclick="limpiar_sesion()">Cerrar sesion</button>
                     </li>
                 </ul>
-            </div>
+              </div>
         </div>
     </nav>
 
@@ -47,6 +69,7 @@
 
     <script src="../js/sesion.js"></script>
     <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
     
 </body>
 </html>

@@ -36,7 +36,7 @@ const indesesion = () => {
                             <a class="dropdown-item text-warning" href="html/propuestas_revi.html">Propuestas</a>
                         </li>
                     </ul>
-                </i>
+                </li>
                 `
                 opc5.innerHTML += `
                     <li class="nav-item">
