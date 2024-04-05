@@ -9,6 +9,20 @@ const obtener_tipo = () => {
 
 const form_registroadmin = () => {
     tipo_form = obtener_tipo();
+    nouser = '';
+    switch (tipo_form) {
+        case "0":
+            nouser = "administrador";
+            break;
+        case "1":
+            nouser = "docente";
+            break;
+        case "2":
+            nouser = "estudiante";
+            break;
+    }
+
+    alert("Se ha seleccionado un registro de " + nouser);
 
     let contenido = document.querySelector('#form_extra');
     contenido.innerHTML = '';
