@@ -97,6 +97,8 @@ const proceso_modal = async(id_boton) => {
     NMB_Celuco.value = datos[0].numero_celular;
 }
 
+//ACTUALIZACION DE USUARIO SELECCIONADO
+
 const Boton_enviar = document.querySelector('#editModal .modal-footer button.btn-primary');
 
 Boton_enviar.addEventListener('click', async() => {
@@ -147,10 +149,6 @@ const obten_usuario_id = async(url, id_usuario) => {
     }
 }
 
-window.addEventListener("load",async()=>{
-    await initDataTable();
-})
-
 //VERIFICACIONES PARA EL UPDATE
 
 const validarCorreo = (emailInput) => {
@@ -187,3 +185,7 @@ const validarCorreo = (emailInput) => {
     }
     return estado;
 }
+
+window.addEventListener("load",async()=>{
+    await initDataTable();
+})
