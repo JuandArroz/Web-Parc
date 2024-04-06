@@ -58,7 +58,7 @@ const listUsers=async()=>{
                         <td>${user.correo}</td>
                         <td>${user.numero_celular}</td>
                         <td>
-                            <button id="${user.id_estudiante}" class="btn btn-sm btn-primary"><i class="fa-solid fa-pencil fa-xl"></i></button>
+                            <button id="${user.id_estudiante}" class="btn btn-sm btn-primary" onclick="proceso_modal(this.id)" data-bs-toggle="modal" data-bs-target="#editModal"><i class="fa-solid fa-pencil fa-xl"></i></button>
                             <button id="${user.id_estudiante}" class="btn btn-sm btn-danger" onclick="eliminar_usuario(this.id)"><i class="fa-solid fa-trash-can fa-xl"></i></button>
                         </td>
                     </tr>
@@ -70,8 +70,9 @@ const listUsers=async()=>{
     }
 }
 
+//ELIMINAR USUARIO DE LA BASE DE DATOS
+
 const eliminar_usuario = async(id_boton) => {
-    console.log(id_boton);
     axios.delete(`http://127.0.0.1:3000/delete_Estudiante/${id_boton}`)
         .then(response => {
             initDataTable();
@@ -81,6 +82,108 @@ const eliminar_usuario = async(id_boton) => {
         });
 }
 
+//APERTURA Y ASIGNACIÓN DE DATOS SELECCIONADOS EN EL MODAL
+
+ideditar = '';
+const proceso_modal = async(id_boton) => {
+    ideditar = id_boton;
+    datos = await obten_usuario_id("http://127.0.0.1:3000/getEstudianteById/" ,ideditar);
+    editModalLabel.innerHTML = "Modificar datos de " + datos[0].nombre + " " + datos[0].apellido;
+
+    TXT_Nombres.value = datos[0].nombre;
+    TXT_Apellidos.value = datos[0].apellido;
+    TXT_Correo.value = datos[0].correo;
+    Pass_Usuario.value = datos[0].contrasena;
+    NMB_Celuco.value = datos[0].numero_celular;
+}
+
+const Boton_enviar = document.querySelector('#editModal .modal-footer button.btn-primary');
+
+Boton_enviar.addEventListener('click', async() => {
+
+    var valores = {nombre: document.getElementById('TXT_Nombres').value,
+        apellido: document.getElementById('TXT_Apellidos').value,
+        numero_celular: document.getElementById('NMB_Celuco').value,
+        correo: document.getElementById('TXT_Correo').value,
+        contrasena: document.getElementById('Pass_Usuario').value
+    };
+
+    if (!valores.correo || !valores.nombre || !valores.apellido || !valores.numero_celular || !valores.contrasena) {
+        alert("Por favor, complete todos los campos.");
+    } else if (!validarCorreo(valores.correo)) {
+        alert("Correo invalido.");
+    } else if (!(await validacion_correoDB(valores.correo))) {
+        alert("El correo ya fue registrado");
+    } else if (!validarNombre(valores.nombre)) {
+        alert("Nombre/s invalido/s.");
+    } else if (!validarNombre(valores.apellido)) {
+        alert("Apellido/s invalido/s.");
+    } else if (!validarTelefono(valores.numero_celular)) {
+        alert("Telefono invalido");
+    } else if (!validarPassword(valores.contrasena)) {
+        alert("La contraseña no es segura. Debe contener:\n*Minimo 1 letra mayuscula\n*Minimo 1 letra minuscula\n*Minimo 1 numero\n*Minimo 1 caracter especial\n*Minimo 8 caracteres, maximo 15");
+    } else {
+        url = 'http://127.0.0.1:3000/update_Estudiante/' + ideditar;
+        axios.put(url, valores)
+            .then(async(response) => {
+                alert("Modificación exitosa");
+                await initDataTable();
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
+});
+
+//OBTENCIÓN DEL USUARIO DEL BOTÓN PRESIONADO
+
+const obten_usuario_id = async(url, id_usuario) => {
+    try {
+        const response = await fetch(url + id_usuario);
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        alert(error);
+    }
+}
+
 window.addEventListener("load",async()=>{
     await initDataTable();
 })
+
+//VERIFICACIONES PARA EL UPDATE
+
+const validarCorreo = (emailInput) => {
+    var emailPattern = /^[^\s@]+@[^\s@]+\.(?:com|co|edu|net|org|gov|mil|biz|info|name|pro|aero|coop|int|jobs|museum|arpa|asia|cat|mobi|tel|travel|xxx)$/i;
+    return emailPattern.test(emailInput);
+  }
+  
+  const validarNombre = (nombreInput) => {
+    var nombrePattern = /^[a-zA-ZÀ-ÿ\s']+$/;
+    return nombrePattern.test(nombreInput);
+  }
+  
+  const validarTelefono = (telefonoInput) => {
+      var telefonoPattern = /^\d{1,11}$/;
+      return telefonoPattern.test(telefonoInput);
+  }
+  
+  const validarPassword = (password) => {
+      const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+      return regex.test(password);
+  }
+
+  const validacion_correoDB = async(correo) => {
+
+    let estado = true;
+    let url_varia = ["http://127.0.0.1:3000/getAdministradorByCorreo/", "http://127.0.0.1:3000/getDocenteByCorreo/", "http://127.0.0.1:3000/getEstudianteByCorreo/"];
+
+    for (let i = 0; i < url_varia.length; i++) {
+        userData = await obten_usuario_id(url_varia[i], correo);
+            if(userData.length > 0 && correo == userData[0].correo){
+                estado = false;
+                break;
+            }
+    }
+    return estado;
+}
