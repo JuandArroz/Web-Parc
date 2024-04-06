@@ -114,9 +114,7 @@ Boton_enviar.addEventListener('click', async() => {
         alert("Por favor, complete todos los campos.");
     } else if (!validarCorreo(valores.correo)) {
         alert("Correo invalido.");
-    } else if (!(await validacion_correoDB(valores.correo))) {
-        alert("El correo ya fue registrado");
-    } else if (!validarNombre(valores.nombre)) {
+    }  else if (!validarNombre(valores.nombre)) {
         alert("Nombre/s invalido/s.");
     } else if (!validarNombre(valores.apellido)) {
         alert("Apellido/s invalido/s.");
@@ -170,21 +168,6 @@ const validarCorreo = (emailInput) => {
       const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
       return regex.test(password);
   }
-
-  const validacion_correoDB = async(correo) => {
-
-    let estado = true;
-    let url_varia = ["http://127.0.0.1:3000/getAdministradorByCorreo/", "http://127.0.0.1:3000/getDocenteByCorreo/", "http://127.0.0.1:3000/getEstudianteByCorreo/"];
-
-    for (let i = 0; i < url_varia.length; i++) {
-        userData = await obten_usuario_id(url_varia[i], correo);
-            if(userData.length > 0 && correo == userData[0].correo){
-                estado = false;
-                break;
-            }
-    }
-    return estado;
-}
 
 window.addEventListener("load",async()=>{
     await initDataTable();
