@@ -126,7 +126,7 @@ Boton_enviar.addEventListener('click', async() => {
         url = 'http://127.0.0.1:3000/update_Estudiante/' + ideditar;
         axios.put(url, valores)
             .then(async(response) => {
-                alert("Modificación exitosa");
+                alert("Modificación exitosa, puede cerrar el menú");
                 await initDataTable();
             })
             .catch((error) => {
