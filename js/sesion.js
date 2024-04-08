@@ -33,7 +33,7 @@ const indesesion = () => {
                             <h6 class="dropdown-header">Opciones de docente <i class="fa-solid fa-user-tie"></i></h6>
                         </li>
                         <li>
-                            <a class="dropdown-item text-warning" href="html/propuestas_revi.html">Propuestas</a>
+                            <a class="dropdown-item text-warning" href="html/propuestasadmin.html">Propuestas</a>
                         </li>
                     </ul>
                 </li>
