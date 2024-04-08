@@ -26,7 +26,7 @@ const dataTable = async() =>{
                         <th>${tesis.fecha_inicio}</th>
                         <th>${tesis.fecha_finalizacion}</th>
                         <th>${tesis.id_estudiante}</th>
-                        <th>Archivo</th>
+                        <th><button type="button" class="btn btn-primary" id="${tesis.id_tesis}"></button></th>
                     </table>
                 </div>
             `
