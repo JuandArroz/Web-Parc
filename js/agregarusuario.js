@@ -67,7 +67,7 @@ const agregarUsuario = async() => {
         contrasena: password
     };
 
-    if (!correo || !nombres || !apellidos || !password) {
+    if (correo == null || nombres == null || apellidos == null || password == null) {
         alert("Por favor, complete todos los campos.");
     }else{
         if(validarCorreo(correo)){
@@ -106,7 +106,7 @@ const agregarUsuario = async() => {
 
         case "1":
             var especialidad = TXT_Especialidad.value;
-            if(!especialidad || !validarNombre(especialidad)){
+            if(especialidad == null || !validarNombre(especialidad)){
                 estado = false;
                 alert("Especialidad invalida o nula");
             }else{
@@ -117,7 +117,7 @@ const agregarUsuario = async() => {
 
         case "2":
             var telefono = NMB_Celuco.value;
-            if(!telefono || !validarTelefono(telefono)){
+            if(telefono == null || !validarTelefono(telefono)){
                 estado = false;
                 alert("Telefono invalido o nulo");
             }else{
