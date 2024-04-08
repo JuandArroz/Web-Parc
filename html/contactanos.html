@@ -10,10 +10,14 @@
     <body class="container-fluid">
         <div class="row login-cont">
             <div class="col-7 col-sm-7 col-md-7 col-lg-7 col-xl-7 position-relative bg-light">
-                <div id="regreso">
-                    <a class="nav-link" href="../index.html" style="color:#808080;"><i class="fa-solid fa-person-walking-arrow-right fa-flip-horizontal"></i> Retroceder</a>
+                <div class="row mb-0">
+                    <a class="nav-link" href="../index.html" style="color:#808080; display: flex; align-items: center;">
+                        <i class="fa-solid fa-person-walking-arrow-right fa-flip-horizontal fa-xl me-2"></i>
+                        <h4 class="mb-0">Inicio</h4>
+                    </a>
                 </div>
                 <form id="contactForm">
+                    <div class="col-md-5 mt-3">
                         <label for="genero">Género:</label><br>
                         <select class="form-select form-select-sm" id="genero" name="genero" required>
                             <option selected>Selecciona tu genero</option>
@@ -21,7 +25,9 @@
                             <option value="femenino">Femenino</option>
                             <option value="otro">Otro</option>
                         </select><br>
-                        <div class="col-md-8">
+                    </div>
+                        
+                        <div class="col-md-5">
                             <label for="nombre" >Nombre completo:</label><br>
                             <input id="nombre" name="nombre" type="text" placeholder="Ingrese su nombre completo" class="form-control">
                         </div>
