@@ -10,37 +10,42 @@
     <body class="container-fluid">
         <div class="row login-cont">
             <div class="col-7 col-sm-7 col-md-7 col-lg-7 col-xl-7 position-relative bg-light">
-                <div class="row mb-0">
-                    <a class="nav-link" href="../index.html" style="color:#808080; display: flex; align-items: center;">
-                        <i class="fa-solid fa-person-walking-arrow-right fa-flip-horizontal fa-xl me-2"></i>
-                        <h4 class="mb-0">Inicio</h4>
-                    </a>
-                </div>
-                <form id="contactForm">
-                    <div class="col-md-5 mt-3">
-                        <label for="genero">Género:</label><br>
-                        <select class="form-select form-select-sm" id="genero" name="genero" required>
-                            <option selected>Selecciona tu genero</option>
-                            <option value="masculino">Masculino</option>
-                            <option value="femenino">Femenino</option>
-                            <option value="otro">Otro</option>
-                        </select><br>
+                <div class="mt-4 ms-3">
+                    <div class="row mb-0">
+                        <a class="nav-link" href="../index.html" style="color:#808080; display: flex; align-items: center;">
+                            <i class="fa-solid fa-person-walking-arrow-right fa-flip-horizontal fa-xl me-2"></i>
+                            <h4 class="mb-0">Inicio</h4>
+                        </a>
                     </div>
-                        
-                        <div class="col-md-5">
-                            <label for="nombre" >Nombre completo:</label><br>
-                            <input id="nombre" name="nombre" type="text" placeholder="Ingrese su nombre completo" class="form-control">
+    
+                    <h2 class="mt-3">Formulario de contactenos</h2>
+                    <p class="text mb-4 ms-1">Complete este formulario en caso de requerir ayuda</p>
+                    <form class="ms-2">
+                        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                            <label for="genero">Género</label><br>
+                            <select class="form-select form-select-sm" id="genero" name="genero" required>
+                                <option value="masculino">Masculino</option>
+                                <option value="femenino">Femenino</option>
+                                <option value="otro">Otro</option>
+                            </select>
                         </div>
-                        <div class="col-md-6">
-                            <label for="email" >Correo electrónico:</label><br>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Ingrese su correo" required><br>
-                        </div>
-                        <div class="col-md-8">
-                            <label for="mensaje">Mensaje:</label><br>
-                            <textarea class="form-control" id="mensaje" name="mensaje" placeholder="Ingrense su mensaje" rows="7"></textarea><br>
-                        </div>
-                        <input type="submit" class="btn btn-warning" value="Enviar">
-                </form>
+                            
+                            <div class="col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 mt-4">
+                                <label for="nombre" >Nombre completo</label><br>
+                                <input id="nombre" name="nombre" type="text" placeholder="Ingrese su nombre completo" class="form-control">
+                            </div>
+                            <div class="col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 mt-4">
+                                <label for="email" >Correo electrónico</label><br>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Ingrese su correo" required>
+                            </div>
+                            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 mt-4">
+                                <label for="mensaje">Mensaje</label><br>
+                                <textarea class="form-control" id="mensaje" name="mensaje" placeholder="Ingrense su mensaje" rows="7"></textarea><br>
+                            </div>
+                            <input type="submit" class="btn btn-warning" value="Enviar">
+                    </form>
+                </div>
+                
             </div>
 
             <div class="col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 text-light" style="background-color:#011B32">
