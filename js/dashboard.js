@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', async function() {
         // Función para obtener todas las propuestas
         const propuestasResponse = await fetch("http://127.0.0.1:3000/getAllPropuesta");
         const propuestas = await propuestasResponse.json();
+        
+        const responseAdmin = await fetch("http://127.0.0.1:3000/getAllAdmin");
+        const admins = await responseAdmin.json();
 
         // Función para obtener todos los docentes
         const docentesResponse = await fetch("http://127.0.0.1:3000/getAllDocente");
@@ -17,7 +20,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             labels: ["Administrador", "Docente", "Estudiante"],
             datasets: [{
                 label: 'Usuarios (Barras)',
-                data: [0, docentes.length, users.length],
+                data: [admins.length, docentes.length, users.length],
                 backgroundColor: ['rgba(255, 99, 132, 0.5)', 'rgba(54, 162, 235, 0.5)', 'rgba(255, 206, 86, 0.5)'],
                 borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)'],
                 borderWidth: 1
@@ -28,7 +31,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             labels: ["Administrador", "Docente", "Estudiante"],
             datasets: [{
                 label: 'Usuarios (Líneas)',
-                data: [0, docentes.length, users.length],
+                data: [admins.length, docentes.length, users.length],
                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
                 borderColor: 'rgba(75, 192, 192, 1)',
                 borderWidth: 1,
@@ -160,4 +163,5 @@ document.addEventListener('DOMContentLoaded', async function() {
         console.error('Error fetching and parsing data:', error);
     }
 });
+
 
