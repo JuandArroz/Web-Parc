@@ -32,3 +32,15 @@
     text-align: center !important;
     vertical-align: middle !important;
 }
+
+.chart-container {
+    border: 1px solid #ccc; 
+    padding: 15px;
+    margin-bottom: 20px; 
+    height: 100%; 
+}
+
+.centered{
+    text-align: center !important;
+    vertical-align: middle !important;
+}
