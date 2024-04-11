@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/barra.css">
 </head>
@@ -23,7 +24,7 @@
                             <a class="nav-link dropdown-toggle text-warning" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Jhonny</a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <h6 class="dropdown-header">Opciones de administrador <i class="fa-solid fa-user-secret"></i></i></h6>
+                                    <h6 class="dropdown-header">Opciones de administrador <i class="fas fa-user-secret"></i></h6>
                                     <a class="dropdown-item text-warning" href="tabladedatos.html">Tablas de datos</a>
                                 </li>
                                 <li>
@@ -34,7 +35,7 @@
                                 </li>
                                 <li>
                                     <hr class="dropdown-divider">
-                                    <h6 class="dropdown-header">Opciones de docente <i class="fa-solid fa-user-tie"></i></h6>
+                                    <h6 class="dropdown-header">Opciones de docente <i class="fas fa-user-tie"></i></h6>
                                     <a class="dropdown-item text-warning" href="propuestasadmin.html">Propuestas</a>
                                 </li>
                             </ul>
@@ -52,23 +53,33 @@
     <div class="container-fluid mt-5">
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-6">
-                <h2>Gráfico de Usuarios (Barras)</h2>
-                <canvas id="userChartBar"></canvas>
+                <div class="chart-container text-center">
+                    <h2>Gráfico de Usuarios (Barras)</h2>
+                    <canvas id="userChartBar"></canvas>
+                </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
-                <h2>Gráfico de Usuarios (Líneas)</h2>
-                <canvas id="userChartLine"></canvas>
+                <div class="chart-container text-center">
+                    <h2>Gráfico de Usuarios (Líneas)</h2>
+                    <canvas id="userChartLine"></canvas>
+                </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
-                <h2>Gráfico de Docentes por Área</h2>
-                <canvas id="docentesChart"></canvas>
+                <div class="chart-container text-center">
+                    <h2>Gráfico de Docentes </h2>
+                    <canvas id="docentesChart"></canvas>
+                </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
-                <h2>Gráfico de Propuestas</h2>
-                <canvas id="propuestasChart"></canvas>
+                <div class="chart-container text-center">
+                    <h2>Gráfico de Propuestas</h2>
+                    <canvas id="propuestasChart"></canvas>
+                </div>
             </div>
         </div>
     </div>
+    
+    
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js/dashboard.js"></script>
