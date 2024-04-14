@@ -44,18 +44,23 @@ const initDataTable=async()=>{
     if(dataTableIsInitialized){
         dataTable.destroy();
     }
-
-    await listPropu();
+    let url = '';
+    if(sesion_actual[0].tipouser == 1){
+        url = "http://127.0.0.1:3000/getPropuestaDocById/"+sesion_actual[0].id_docente;
+    }else if(sesion_actual[0].tipouser == 0){
+        url = "http://127.0.0.1:3000/getAllPropuesta";
+    }
+    await listPropu(url);
     dataTable = $("#datatable_propuestas").DataTable(dataTableOptions);
     dataTableIsInitialized = true;
 }
 
 //OBTENCIÓN E IMPRENSIÓN DE DATOS
 
-const listPropu=async()=>{
+const listPropu=async(url)=>{
     try {   
             if(validar_ses){
-                const response = await fetch("http://127.0.0.1:3000/getPropuestaDocById/"+sesion_actual[0].id_docente);
+                const response = await fetch(url);
                 const propuestas = await response.json();
 
                 let content = ``;
