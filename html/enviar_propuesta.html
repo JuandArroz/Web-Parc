@@ -7,52 +7,47 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/barra.css">
 </head>
-<body onload="comprobar_sesionE()">    
-    
-        <nav class="navbar navbar-expand-lg bg-body-tertiary pt-0">
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary pt-0">
         <div id="barra1" class="container-fluid">
             <a class="navbar-brand text-light" href="../index.html">
                 <img src="../img/tesiub_nobg.png" alt="TESIUB" width="50" height="50">Inicio
-              </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <button class="btn btn-warning" id="delog" onclick="limpiar_sesion()">Cerrar sesion</button>
-            </li>
-            </ul>
-          </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <button class="btn btn-warning" id="delog" onclick="limpiar_sesion()">Cerrar sesion</button>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </nav>
+    </nav>
 
-      <div class="container mt-5">
+    <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card" style="background-color: #011b32;">
                     <div class="card-body" style="background-color: #f8f9fa;">
-                        <h2 class="card-title text-center mb-4">Propuestas</h2>
-                        <form id="contactForm">
+                        <h2 class="card-title text-center mb-4">Enviar Propuesta</h2>
+                        <form id="propuestaForm">
                             <div class="mb-3">
-                                <label for="nombreCompleto" class="form-label">Nombre completo:</label>
-                                <input type="text" class="form-control" id="nombreCompleto" name="nombreCompleto" required>
+                                <label for="titulo" class="form-label">Título:</label>
+                                <input type="text" class="form-control" id="titulo" name="titulo" required>
                             </div>
                             <div class="mb-3">
-                                <label for="email" class="form-label">Correo electrónico:</label>
-                                <input type="email" class="form-control" id="email" name="email" required>
+                                <label for="descripcion" class="form-label">Descripción:</label>
+                                <textarea class="form-control" id="descripcion" name="descripcion" rows="4" required></textarea>
                             </div>
                             <div class="mb-3">
-                                <label for="programaEstudio" class="form-label">Programa de estudio:</label>
-                                <input type="text" class="form-control" id="programaEstudio" name="programaEstudio" required>
+                                <label for="fecha_presentacion" class="form-label">Fecha de Presentación:</label>
+                                <input type="date" class="form-control" id="fecha_presentacion" name="fecha_presentacion" required>
                             </div>
                             <div class="mb-3">
-                                <label for="tituloProyecto" class="form-label">Título del proyecto:</label>
-                                <input type="text" class="form-control" id="tituloProyecto" name="tituloProyecto" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="descripcionProyecto" class="form-label">Breve descripción del proyecto:</label>
-                                <textarea class="form-control" id="descripcionProyecto" name="descripcionProyecto" rows="4" required></textarea>
+                                <label for="archivo_pdf" class="form-label">Archivo PDF de la Propuesta:</label>
+                                <input type="file" class="form-control" id="archivo_pdf" name="archivo_pdf" accept=".pdf" required>
                             </div>
                             <div class="d-grid">
                                 <button type="submit" class="btn btn-primary">Enviar</button>
@@ -63,7 +58,7 @@
             </div>
         </div>
     </div>
-    
+
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/sesion.js"></script>
     <script src="../js/enviar_propuesta.js"></script>
