@@ -25,23 +25,59 @@ const form_registroadmin = () => {
     alert("Se ha seleccionado un registro de " + nouser);
 
     let contenido = document.querySelector('#form_extra');
-    contenido.innerHTML = '';
+    contenido.innerHTML = `
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="TXT_Correo" class="form-label">Correo:</label>
+                        <input type="text" class="form-control form-control-sm" id="TXT_Correo" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="Pass_Usuario" class="form-label">Contraseña:</label>
+                        <input type="password" class="form-control form-control-sm" id="Pass_Usuario" required>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="TXT_Nombres" class="form-label">Nombres:</label>
+                        <input type="text" class="form-control form-control-sm" id="TXT_Nombres" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="TXT_Apellidos" class="form-label">Apellidos:</label>
+                        <input type="text" class="form-control form-control-sm" id="TXT_Apellidos" required>
+                    </div>
+                </div>
+        `;
     
     switch (tipo_form) {
         case "0":
+            contenido.innerHTML += `
+            <button type="button" class="btn btn-primary" onclick="agregarUsuario()">Agregar</button>
+            `;
             break;
 
         case "1":
             contenido.innerHTML += `
-                <label for="TXT_Especialidad" class="form-label">Especialidad:</label>
-                <input type="text" class="form-control form-control-sm" id="TXT_Especialidad" required>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="TXT_Especialidad" class="form-label">Especialidad:</label>
+                        <input type="text" class="form-control form-control-sm" id="TXT_Especialidad" required>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="agregarUsuario()">Agregar</button>
+                
             `;
             break;
 
         case "2":
             contenido.innerHTML += `
-                <label for="NMB_Celuco" class="form-label">Telefono:</label>
-                <input type="text" class="form-control form-control-sm" id="NMB_Celuco" required>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="NMB_Celuco" class="form-label">Telefono:</label>
+                        <input type="text" class="form-control form-control-sm" id="NMB_Celuco" required>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="agregarUsuario()">Agregar</button>  
             `;
             break;
     

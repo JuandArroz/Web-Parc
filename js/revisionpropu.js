@@ -57,40 +57,42 @@ const initDataTable=async()=>{
 
 //OBTENCIÓN E IMPRENSIÓN DE DATOS
 
-const listPropu=async(url)=>{
-    try {   
-            if(validar_ses){
-                const response = await fetch(url);
-                const propuestas = await response.json();
+const listPropu = async (url) => {
+    try {
+        if (validar_ses) {
+            const response = await fetch(url);
+            const propuestas = await response.json();
 
-                let content = ``;
-                propuestas.forEach((propuesta, index) => {
-                    content +=`
-                        <tr>
-                            <th>${index + 1}</th>
-                            <td>${propuesta.id_propuesta}</td>
-                            <td>${propuesta.estado}</td>
-                            <td>${propuesta.titulo}</td>
-                            <td>${propuesta.descripcion}</td>
-                            <td>${propuesta.fecha_presentacion}</td>
-                            <td>${propuesta.fecha_aprobacion}</td>
-                            <td>${propuesta.id_estudiante}</td>
-                            <td>
-                                <button id="${propuesta.id_propuesta}" class="btn btn-sm btn-primary" onclick="proceso_modal(this.id)" data-bs-toggle="modal" data-bs-target="#editModal"><i class="fa-solid fa-eye fa-xl"></i></button>
-                                <button id="${propuesta.id_propuesta}" class="btn btn-sm btn-danger" onclick="eliminar_usuario(this.id)"><i class="fa-solid fa-trash-can fa-xl"></i></button>
-                            </td>
-                        </tr>
-                    `
-                });
-                tableBody_propuestas.innerHTML = content;
-            }else{
-                alert("ERROR");
-                window.location = "../index.html";
-            }
+            let content = ``;
+            await Promise.all(propuestas.map(async (propuesta, index) => {
+                const response2 = await fetch("http://127.0.0.1:3000/getEstudianteById/" + propuesta.id_estudiante);
+                const estudiantes = await response2.json();
+                content += `
+                    <tr>
+                        <th>${index + 1}</th>
+                        <td>${propuesta.id_propuesta}</td>
+                        <td>${propuesta.estado}</td>
+                        <td>${propuesta.titulo}</td>
+                        <td>${propuesta.descripcion}</td>
+                        <td>${propuesta.fecha_presentacion}</td>
+                        <td>${propuesta.fecha_aprobacion}</td>
+                        <td>${estudiantes[0].nombre} ${estudiantes[0].apellido}</td>
+                        <td>
+                            <button id="${propuesta.id_propuesta}" class="btn btn-sm btn-primary" onclick="proceso_modal(this.id)" data-bs-toggle="modal" data-bs-target="#editModal"><i class="fa-solid fa-eye fa-xl"></i></button>
+                            <button id="${propuesta.id_propuesta}" class="btn btn-sm btn-danger" onclick="eliminar_usuario(this.id)"><i class="fa-solid fa-trash-can fa-xl"></i></button>
+                        </td>
+                    </tr>
+                `;
+            }));
+            tableBody_propuestas.innerHTML = content;
+        } else {
+            alert("ERROR");
+            window.location = "../index.html";
+        }
     } catch (ex) {
-        alert(ex)
+        alert(ex);
     }
-}
+};
 
 window.addEventListener("load",async()=>{
     await initDataTable();
