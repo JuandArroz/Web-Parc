@@ -1,7 +1,6 @@
 let dataTable;
 let dataTableIsInitialized = false;
 var sesion_actual = JSON.parse(localStorage.getItem("sesionusuario"));
-console.log(sesion_actual[0].id_docente);
 
 const validar_ses = () => {
     if(sesion_actual == null){
@@ -15,8 +14,8 @@ const validar_ses = () => {
 
 const dataTableOptions = {
     columnDefs:[
-        {className:"centered", targets:[0,1,2,3,4,5,6,7]},
-        {orderable:false, targets:[5,6]}
+        {className:"centered", targets:[0,1,2,3,4,5,6,7,8]},
+        {orderable:false, targets:[5,6,8]}
     ],
     pageLength:10,
     lengthMenu: [10, 20, 40, 60, 80, 100],
@@ -73,13 +72,12 @@ const listPropu = async (url) => {
                         <td>${propuesta.id_propuesta}</td>
                         <td>${propuesta.estado}</td>
                         <td>${propuesta.titulo}</td>
-                        <td>${propuesta.descripcion}</td>
+                        <td>${propuesta.descripcion.substring(0, 50)}</td>
                         <td>${propuesta.fecha_presentacion}</td>
                         <td>${propuesta.fecha_aprobacion}</td>
                         <td>${estudiantes[0].nombre} ${estudiantes[0].apellido}</td>
                         <td>
-                            <button id="${propuesta.id_propuesta}" class="btn btn-sm btn-primary" onclick="proceso_modal(this.id)" data-bs-toggle="modal" data-bs-target="#editModal"><i class="fa-solid fa-eye fa-xl"></i></button>
-                            <button id="${propuesta.id_propuesta}" class="btn btn-sm btn-danger" onclick="eliminar_usuario(this.id)"><i class="fa-solid fa-trash-can fa-xl"></i></button>
+                            <button id="${propuesta.id_propuesta}" class="btn btn-sm btn-primary" onclick="proceso_modal(this.id)" data-bs-toggle="modal" data-bs-target="#RevisarModal"><i class="fa-solid fa-eye fa-xl"></i></button>                            
                         </td>
                     </tr>
                 `;
@@ -93,6 +91,16 @@ const listPropu = async (url) => {
         alert(ex);
     }
 };
+
+var ideditar = '';
+const proceso_modal = async(id_boton) => {
+    ideditar = id_boton;
+    response = await fetch("http://127.0.0.1:3000/getPropuestaById/"+ideditar);
+    data = await response.json();
+    staticBackdropLabel.innerHTML = data[0].titulo;
+    ApartadoId.innerHTML = "Id de propuesta: "+data[0].id_propuesta;
+    ApartadoDescripcion.innerHTML = data[0].descripcion;
+}
 
 window.addEventListener("load",async()=>{
     await initDataTable();
