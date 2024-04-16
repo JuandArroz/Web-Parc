@@ -95,11 +95,15 @@ const listPropu = async (url) => {
 var ideditar = '';
 const proceso_modal = async(id_boton) => {
     ideditar = id_boton;
-    response = await fetch("http://127.0.0.1:3000/getPropuestaById/"+ideditar);
-    data = await response.json();
+    const response = await fetch("http://127.0.0.1:3000/getPropuestaById/"+ideditar);
+    const data = await response.json();
+    const response2 = await fetch("http://127.0.0.1:3000/getEstudianteById/" + data[0].id_estudiante);
+    const estudiantes = await response2.json();
+
     staticBackdropLabel.innerHTML = data[0].titulo;
     ApartadoId.innerHTML = "Id de propuesta: "+data[0].id_propuesta;
     ApartadoDescripcion.innerHTML = data[0].descripcion;
+    ApartadoNombre.innerHTML = "Estudiante: " + estudiantes[0].nombre + " " + estudiantes[0].apellido;
 }
 
 window.addEventListener("load",async()=>{
