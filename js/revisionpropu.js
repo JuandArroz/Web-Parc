@@ -123,6 +123,34 @@ const proceso_modal = async(id_boton) => {
     ApartadoFecha2.innerHTML = data[0].fecha_aprobacion;
 }
 
+const enviar_correccion = () => {
+    var mensaje = document.getElementById("correccion_propuesta").value;
+    /*var valores = {
+        id_asesor: ,
+        id_propuesta: ideditar,
+        texto: mensaje,
+    }*/
+
+
+    if(!mensaje){
+        alert("El mensaje de corrección no puede estar vacío");
+    }else{
+        axios.post(url, valores)
+        .then(function (response) {
+            alert("Registro exitoso");
+            location.reload();
+        })
+        .catch(err => {
+            console.error('Error: ', err);
+            alert("Ocurrió un error al intentar agregar el usuario.");
+        });
+    }
+
+    document.getElementById("correccion_propuesta").value = "";
+
+}
+BotonCorregir.addEventListener("click", enviar_correccion);
+
 window.addEventListener("load",async()=>{
     await initDataTable();
 })
