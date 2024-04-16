@@ -123,33 +123,66 @@ const proceso_modal = async(id_boton) => {
     ApartadoFecha2.innerHTML = data[0].fecha_aprobacion;
 }
 
-const enviar_correccion = () => {
+const enviar_correccion = async() => {
+    const response = await fetch("http://127.0.0.1:3000/getAsesorById/"+sesion_actual[0].id_docente);
+    const data = await response.json();
+    valores = {};
     var mensaje = document.getElementById("correccion_propuesta").value;
-    /*var valores = {
-        id_asesor: ,
-        id_propuesta: ideditar,
-        texto: mensaje,
-    }*/
 
-
+    data.forEach(datos => {
+        if(datos.id_propuesta == ideditar)
+            valores = {
+            id_asesor: datos.id_asesor,
+            id_propuesta: ideditar,
+            texto: mensaje,
+        };
+    });
+    
     if(!mensaje){
         alert("El mensaje de corrección no puede estar vacío");
     }else{
-        axios.post(url, valores)
+
+        axios.post("http://127.0.0.1:3000/add_comentariopropuesta", valores)
         .then(function (response) {
-            alert("Registro exitoso");
-            location.reload();
+            alert("Corrección enviada");
         })
         .catch(err => {
             console.error('Error: ', err);
-            alert("Ocurrió un error al intentar agregar el usuario.");
+            alert("Ocurrió un error al hacer la corrección.");
         });
+
+        correccion = {
+            estado: "Correccion Pendiente"
+        };
+        axios.put('http://127.0.0.1:3000/update_EstadoPropuestas/' + ideditar, correccion)
+            .then(async(response) => {                
+                await initDataTable();
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+
+        document.getElementById("correccion_propuesta").value = "";
     }
 
-    document.getElementById("correccion_propuesta").value = "";
 
 }
 BotonCorregir.addEventListener("click", enviar_correccion);
+
+
+const aprobar_propuesta = () => {
+    aprobado = {
+        estado: "Aprobada"
+    };
+    axios.put('http://127.0.0.1:3000/update_EstadoPropuestas/' + ideditar, aprobado)
+        .then(async(response) => {                
+            await initDataTable();
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+}
+BotonAprobar.addEventListener("click", aprobar_propuesta);
 
 window.addEventListener("load",async()=>{
     await initDataTable();
