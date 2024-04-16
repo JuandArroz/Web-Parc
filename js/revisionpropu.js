@@ -66,6 +66,14 @@ const listPropu = async (url) => {
             await Promise.all(propuestas.map(async (propuesta, index) => {
                 const response2 = await fetch("http://127.0.0.1:3000/getEstudianteById/" + propuesta.id_estudiante);
                 const estudiantes = await response2.json();
+
+                if (!propuesta.fecha_presentacion) {
+                    propuesta.fecha_presentacion = 'No definida';
+                }
+                if (!propuesta.fecha_aprobacion) {
+                    propuesta.fecha_aprobacion = 'No definida';
+                }
+
                 content += `
                     <tr>
                         <th>${index + 1}</th>
@@ -97,6 +105,7 @@ const proceso_modal = async(id_boton) => {
     ideditar = id_boton;
     const response = await fetch("http://127.0.0.1:3000/getPropuestaById/"+ideditar);
     const data = await response.json();
+
     const response2 = await fetch("http://127.0.0.1:3000/getEstudianteById/" + data[0].id_estudiante);
     const estudiantes = await response2.json();
 
@@ -104,6 +113,14 @@ const proceso_modal = async(id_boton) => {
     ApartadoId.innerHTML = "Id de propuesta: "+data[0].id_propuesta;
     ApartadoDescripcion.innerHTML = data[0].descripcion;
     ApartadoNombre.innerHTML = "Estudiante: " + estudiantes[0].nombre + " " + estudiantes[0].apellido;
+    if (!data[0].fecha_presentacion) {
+        data[0].fecha_presentacion = 'No definida';
+    }
+    if (!data[0].fecha_aprobacion) {
+        data[0].fecha_aprobacion = 'No definida';
+    }
+    ApartadoFecha1.innerHTML = data[0].fecha_presentacion;
+    ApartadoFecha2.innerHTML = data[0].fecha_aprobacion;
 }
 
 window.addEventListener("load",async()=>{
