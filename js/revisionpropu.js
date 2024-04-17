@@ -67,13 +67,22 @@ const listPropu = async (url) => {
                 const response2 = await fetch("http://127.0.0.1:3000/getEstudianteById/" + propuesta.id_estudiante);
                 const estudiantes = await response2.json();
 
-                if (!propuesta.fecha_presentacion) {
-                    propuesta.fecha_presentacion = 'No definida';
-                }
-                if (!propuesta.fecha_aprobacion) {
-                    propuesta.fecha_aprobacion = 'No definida';
+                var fechaFormateada = 'No definida';
+                var fechaFormateada2 = 'No definida';
+                const opcionesFormato = { year: 'numeric', month: 'short', day: '2-digit' };
+
+                if (!propuesta.fecha_presentacion) {                    
+                }else{
+                    const fechaObjeto2 = new Date(propuesta.fecha_presentacion);
+                    fechaFormateada2 = fechaObjeto2.toLocaleDateString('es-ES', opcionesFormato);
                 }
 
+                if (!propuesta.fecha_aprobacion) {
+                }else{
+                    const fechaObjeto = new Date(propuesta.fecha_aprobacion);                    
+                    fechaFormateada = fechaObjeto.toLocaleDateString('es-ES', opcionesFormato);
+                }
+                
                 content += `
                     <tr>
                         <th>${index + 1}</th>
@@ -81,8 +90,8 @@ const listPropu = async (url) => {
                         <td>${propuesta.estado}</td>
                         <td>${propuesta.titulo}</td>
                         <td>${propuesta.descripcion.substring(0, 50)}</td>
-                        <td>${propuesta.fecha_presentacion}</td>
-                        <td>${propuesta.fecha_aprobacion}</td>
+                        <td>${fechaFormateada2}</td>
+                        <td>${fechaFormateada}</td>
                         <td>${estudiantes[0].nombre} ${estudiantes[0].apellido}</td>
                         <td>
                             <button id="${propuesta.id_propuesta}" class="btn btn-sm btn-primary" onclick="proceso_modal(this.id)" data-bs-toggle="modal" data-bs-target="#RevisarModal"><i class="fa-solid fa-eye fa-xl"></i></button>                            
@@ -113,14 +122,34 @@ const proceso_modal = async(id_boton) => {
     ApartadoId.innerHTML = "Id de propuesta: "+data[0].id_propuesta;
     ApartadoDescripcion.innerHTML = data[0].descripcion;
     ApartadoNombre.innerHTML = "Estudiante: " + estudiantes[0].nombre + " " + estudiantes[0].apellido;
-    if (!data[0].fecha_presentacion) {
-        data[0].fecha_presentacion = 'No definida';
+
+    var fechaFormateada = 'No definida';
+    var fechaFormateada2 = 'No definida';
+    const opcionesFormato = { year: 'numeric', month: 'short', day: '2-digit' };
+
+    if (!data[0].fecha_presentacion) {                    
+    }else{
+        const fechaObjeto2 = new Date(data[0].fecha_presentacion);
+        fechaFormateada2 = fechaObjeto2.toLocaleDateString('es-ES', opcionesFormato);
     }
+
     if (!data[0].fecha_aprobacion) {
-        data[0].fecha_aprobacion = 'No definida';
+    }else{
+        const fechaObjeto = new Date(data[0].fecha_aprobacion);                    
+        fechaFormateada = fechaObjeto.toLocaleDateString('es-ES', opcionesFormato);
     }
-    ApartadoFecha1.innerHTML = data[0].fecha_presentacion;
-    ApartadoFecha2.innerHTML = data[0].fecha_aprobacion;
+
+    ApartadoFecha1.innerHTML = fechaFormateada2;
+    ApartadoFecha2.innerHTML = fechaFormateada;
+
+    if(data[0].estado != "Aprobada"){
+        opc1.innerHTML = `<button class="btn btn-warning" data-bs-target="#CorregirModal" data-bs-toggle="modal">Corrección</button>`;
+        opc2.innerHTML = `<button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="BotonAprobar" onclick="aprobar_propuesta()">Aprobar propuesta</button>`;
+    }else{
+        opc1.innerHTML = '';
+        opc2.innerHTML = '';
+    }
+
 }
 
 const enviar_correccion = async() => {
@@ -152,7 +181,8 @@ const enviar_correccion = async() => {
         });
 
         correccion = {
-            estado: "Correccion Pendiente"
+            estado: "Correccion Pendiente",
+            fecha_aprobacion: ''
         };
         axios.put('http://127.0.0.1:3000/update_EstadoPropuestas/' + ideditar, correccion)
             .then(async(response) => {                
@@ -171,8 +201,10 @@ BotonCorregir.addEventListener("click", enviar_correccion);
 
 
 const aprobar_propuesta = () => {
-    aprobado = {
-        estado: "Aprobada"
+    const fechaAprobacion = new Date().toISOString();
+    const aprobado = {
+        estado: "Aprobada",
+        fecha_aprobacion: fechaAprobacion
     };
     axios.put('http://127.0.0.1:3000/update_EstadoPropuestas/' + ideditar, aprobado)
         .then(async(response) => {                
@@ -182,7 +214,6 @@ const aprobar_propuesta = () => {
             console.error(error);
         });
 }
-BotonAprobar.addEventListener("click", aprobar_propuesta);
 
 window.addEventListener("load",async()=>{
     await initDataTable();
