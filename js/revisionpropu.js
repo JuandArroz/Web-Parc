@@ -74,13 +74,15 @@ const listPropu = async (url) => {
                 if (!propuesta.fecha_presentacion) {                    
                 }else{
                     const fechaObjeto2 = new Date(propuesta.fecha_presentacion);
-                    fechaFormateada2 = fechaObjeto2.toLocaleDateString('es-CO', { timeZone: 'America/Bogota' });
+                    fechaObjeto2.setDate(fechaObjeto2.getDate() + 1);
+                    fechaFormateada2 = fechaObjeto2.toLocaleDateString('es-CO', opcionesFormato);
                 }
 
                 if (!propuesta.fecha_aprobacion) {
                 }else{
-                    const fechaObjeto = new Date(propuesta.fecha_aprobacion);                    
-                    fechaFormateada = fechaObjeto.toLocaleDateString('es-CO', { timeZone: 'America/Bogota' });
+                    const fechaObjeto = new Date(propuesta.fecha_aprobacion);
+                    fechaObjeto.setDate(fechaObjeto.getDate() + 1);
+                    fechaFormateada = fechaObjeto.toLocaleDateString('es-CO', opcionesFormato);
                 }
                 
                 content += `
@@ -128,15 +130,17 @@ const proceso_modal = async(id_boton) => {
     const opcionesFormato = { year: 'numeric', month: 'short', day: '2-digit' };
 
     if (!data[0].fecha_presentacion) {                    
-    }else{
+    } else {
         const fechaObjeto2 = new Date(data[0].fecha_presentacion);
-        fechaFormateada2 = fechaObjeto2.toLocaleDateString('es-CO', { timeZone: 'America/Bogota' });
+        fechaObjeto2.setDate(fechaObjeto2.getDate() + 1);
+        fechaFormateada2 = fechaObjeto2.toLocaleDateString('es-CO', opcionesFormato);
     }
-
+    
     if (!data[0].fecha_aprobacion) {
-    }else{
-        const fechaObjeto = new Date(data[0].fecha_aprobacion);                    
-        fechaFormateada = fechaObjeto.toLocaleDateString('es-CO', { timeZone: 'America/Bogota' });
+    } else {
+        const fechaObjeto = new Date(data[0].fecha_aprobacion);
+        fechaObjeto.setDate(fechaObjeto.getDate() + 1);
+        fechaFormateada = fechaObjeto.toLocaleDateString('es-CO', opcionesFormato);
     }
 
     ApartadoFecha1.innerHTML = fechaFormateada2;
