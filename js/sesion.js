@@ -13,7 +13,7 @@ const indesesion = () => {
             case 0:
                 opc4.innerHTML += `
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-warning" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Jhonny</a>
+                    <a class="nav-link dropdown-toggle text-warning" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opciones</a>
                     <ul class="dropdown-menu">
                         <li>
                             <h6 class="dropdown-header">Opciones de administrador <i class="fa-solid fa-user-secret"></i></i></h6>
@@ -107,7 +107,7 @@ const indesesion2 = () => {
             case 0:
                 opc4.innerHTML += `
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-warning" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Jhonny</a>
+                    <a class="nav-link dropdown-toggle text-warning" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opciones</a>
                     <ul class="dropdown-menu">
                         <li>
                             <h6 class="dropdown-header">Opciones de administrador <i class="fa-solid fa-user-secret"></i></i></h6>
