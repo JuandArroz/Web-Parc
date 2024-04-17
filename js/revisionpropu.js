@@ -143,7 +143,9 @@ const proceso_modal = async(id_boton) => {
     ApartadoFecha2.innerHTML = fechaFormateada;
 
     if(data[0].estado != "Aprobada"){
-        opc1.innerHTML = `<button class="btn btn-warning" data-bs-target="#CorregirModal" data-bs-toggle="modal">Corrección</button>`;
+        if(sesion_actual[0].tipouser == 1){
+            opc1.innerHTML = `<button class="btn btn-warning" data-bs-target="#CorregirModal" data-bs-toggle="modal">Corrección</button>`;
+        }
         opc2.innerHTML = `<button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="BotonAprobar" onclick="aprobar_propuesta()">Aprobar propuesta</button>`;
     }else{
         opc1.innerHTML = '';
