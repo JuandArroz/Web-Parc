@@ -130,6 +130,31 @@
             </div>
           </div>
 
+          <div class="modal fade" id="FechaModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel3" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel3">Asignar fecha de presentación</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <input type="date" class="form-control">
+                    </form>
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <div>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button class="btn btn-primary" data-bs-target="#RevisarModal" data-bs-toggle="modal">Volver</button>
+                    </div>
+                    <div>
+                        <button class="btn btn-warning" data-bs-dimiss="modal" id="BotonFecha">Registrar fecha</button>
+                    </div>  
+                  </div>
+              </div>
+            </div>
+          </div>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="../js/bootstrap.bundle.min.js"></script>
         <script src="../js/revisionpropu.js"></script>

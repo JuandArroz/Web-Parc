@@ -215,6 +215,8 @@ const aprobar_propuesta = () => {
         });
 }
 
+
+
 window.addEventListener("load",async()=>{
     await initDataTable();
 })
