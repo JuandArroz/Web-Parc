@@ -74,13 +74,13 @@ const listPropu = async (url) => {
                 if (!propuesta.fecha_presentacion) {                    
                 }else{
                     const fechaObjeto2 = new Date(propuesta.fecha_presentacion);
-                    fechaFormateada2 = fechaObjeto2.toLocaleDateString('es-ES', opcionesFormato);
+                    fechaFormateada2 = fechaObjeto2.toLocaleDateString('es-CO', { timeZone: 'America/Bogota' });
                 }
 
                 if (!propuesta.fecha_aprobacion) {
                 }else{
                     const fechaObjeto = new Date(propuesta.fecha_aprobacion);                    
-                    fechaFormateada = fechaObjeto.toLocaleDateString('es-ES', opcionesFormato);
+                    fechaFormateada = fechaObjeto.toLocaleDateString('es-CO', { timeZone: 'America/Bogota' });
                 }
                 
                 content += `
@@ -130,13 +130,13 @@ const proceso_modal = async(id_boton) => {
     if (!data[0].fecha_presentacion) {                    
     }else{
         const fechaObjeto2 = new Date(data[0].fecha_presentacion);
-        fechaFormateada2 = fechaObjeto2.toLocaleDateString('es-ES', opcionesFormato);
+        fechaFormateada2 = fechaObjeto2.toLocaleDateString('es-CO', { timeZone: 'America/Bogota' });
     }
 
     if (!data[0].fecha_aprobacion) {
     }else{
         const fechaObjeto = new Date(data[0].fecha_aprobacion);                    
-        fechaFormateada = fechaObjeto.toLocaleDateString('es-ES', opcionesFormato);
+        fechaFormateada = fechaObjeto.toLocaleDateString('es-CO', { timeZone: 'America/Bogota' });
     }
 
     ApartadoFecha1.innerHTML = fechaFormateada2;
@@ -215,7 +215,19 @@ const aprobar_propuesta = () => {
         });
 }
 
-
+const asignar_fecha = () => {
+    const fecha = {
+        fecha_presentacion: document.getElementById("fecha_propuesta").value
+    }
+    axios.put('http://127.0.0.1:3000/update_PresentacionPropuestas/' + ideditar, fecha)
+        .then(async(response) => {                
+            await initDataTable();
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+}
+BotonFecha.addEventListener("click", asignar_fecha);
 
 window.addEventListener("load",async()=>{
     await initDataTable();
